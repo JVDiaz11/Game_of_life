@@ -1,0 +1,29 @@
+Windows install (PowerShell)
+1) cd /mnt/c/Users/Jesus/Work/Ars_Iustitia/learning_test/Toys/Game_of_life
+2) python -m venv .venv
+3) .\.venv\Scripts\activate
+4) pip install --upgrade pip
+5) pip install -r requirements.txt
+6) Run: python game_of_life.py
+
+Build Windows .exe (PowerShell)
+1) cd /mnt/c/Users/Jesus/Work/Ars_Iustitia/learning_test/Toys/Game_of_life
+2) .\.venv\Scripts\activate  (or create venv as above)
+3) pip install pyinstaller
+4) pyinstaller --noconfirm --onefile --windowed game_of_life.py --name game-of-life
+5) Find exe in dist\game-of-life.exe
+
+Linux install (bash)
+1) cd /mnt/c/Users/Jesus/Work/Ars_Iustitia/learning_test/Toys/Game_of_life
+2) python -m venv .venv
+3) source .venv/bin/activate
+4) pip install --upgrade pip
+5) pip install -r requirements.txt
+6) Run: python game_of_life.py
+
+Build Linux binary (bash)
+1) cd /mnt/c/Users/Jesus/Work/Ars_Iustitia/learning_test/Toys/Game_of_life
+2) source .venv/bin/activate  (or create venv as above)
+3) pip install pyinstaller
+4) pyinstaller --noconfirm --onefile --windowed game_of_life.py --name game-of-life
+5) Find binary in dist/game-of-life
