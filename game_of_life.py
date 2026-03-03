@@ -113,9 +113,10 @@ class LifeWidget(QtWidgets.QWidget):
         self.update()
         log_debug("Board cleared")
 
-    def randomize(self, density: float = 0.2) -> None:
+    def randomize(self, density: float = 0.2, allowed_species: Sequence[int] | None = None) -> None:
         alive_mask = np.random.rand(self.rows, self.cols) < density
-        species_choices = np.random.randint(1, 6, size=(self.rows, self.cols), dtype=np.int8)
+        allowed = list(allowed_species) if allowed_species else [1, 2, 3, 4, 5]
+        species_choices = np.random.choice(allowed, size=(self.rows, self.cols)).astype(np.int8)
         self.grid = np.where(alive_mask, species_choices, 0)
         self.age[:] = 0
         self.env_engine.reset()
@@ -431,6 +432,63 @@ class BrushPanel(QtWidgets.QGroupBox):
         )
 
 
+class SpawnPanel(QtWidgets.QGroupBox):
+    allowed_changed = QtCore.Signal(list)
+
+    def __init__(self) -> None:
+        super().__init__("Spawn Control")
+        layout = QtWidgets.QVBoxLayout(self)
+        layout.setContentsMargins(8, 8, 8, 8)
+        layout.setSpacing(6)
+
+        info = QtWidgets.QLabel("Species eligible for Random")
+        info.setWordWrap(True)
+        layout.addWidget(info)
+
+        self.checkboxes: Dict[int, QtWidgets.QCheckBox] = {}
+        for sid in range(1, 6):
+            cb = QtWidgets.QCheckBox(f"Species {sid}")
+            cb.setChecked(True)
+            cb.stateChanged.connect(self._emit_allowed)
+            layout.addWidget(cb)
+            self.checkboxes[sid] = cb
+
+        btn_row = QtWidgets.QHBoxLayout()
+        sel_all = QtWidgets.QPushButton("All")
+        sel_none = QtWidgets.QPushButton("None")
+        sel_all.clicked.connect(self._select_all)
+        sel_none.clicked.connect(self._select_none)
+        btn_row.addWidget(sel_all)
+        btn_row.addWidget(sel_none)
+        layout.addLayout(btn_row)
+
+        layout.addStretch(1)
+        self.setStyleSheet(
+            "QGroupBox { color: white; font-weight: bold; }"
+            "QLabel { color: white; }"
+            "QCheckBox { color: white; }"
+            "QPushButton { color: white; background-color: #444; border: 1px solid #666; padding: 4px; }"
+            "QPushButton:hover { background-color: #555; }"
+        )
+
+    def allowed_species(self) -> list[int]:
+        allowed = [sid for sid, cb in self.checkboxes.items() if cb.isChecked()]
+        return allowed or [1, 2, 3, 4, 5]
+
+    def _emit_allowed(self) -> None:
+        self.allowed_changed.emit(self.allowed_species())
+
+    def _select_all(self) -> None:
+        for cb in self.checkboxes.values():
+            cb.setChecked(True)
+        self._emit_allowed()
+
+    def _select_none(self) -> None:
+        for cb in self.checkboxes.values():
+            cb.setChecked(False)
+        self._emit_allowed()
+
+
 class StatsPanel(QtWidgets.QGroupBox):
     def __init__(self) -> None:
         super().__init__("Stats")
@@ -624,10 +682,12 @@ class MainWindow(QtWidgets.QMainWindow):
         self.board = LifeWidget()
         self.controls = ControlPanel()
         self.brush_panel = BrushPanel()
+        self.spawn_panel = SpawnPanel()
         self.stats_panel = StatsPanel()
         self.insights_panel = InsightsPanel()
         self.config_panel = ConfigPanel(self.board.env_engine.cfg)
         self.brush_panel.setMinimumWidth(180)
+        self.spawn_panel.setMinimumWidth(180)
         self.stats_panel.setMinimumWidth(220)
         self.insights_panel.setMinimumWidth(260)
         self.config_panel.setMinimumWidth(260)
@@ -640,6 +700,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.panel_toggle_bar = PanelToggleBar(
             [
+                ("spawn", "Spawn Panel", False),
                 ("brush", "Brush Panel", True),
                 ("stats", "Stats Panel", True),
                 ("insights", "Insights Panel", False),
@@ -650,6 +711,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
         splitter = QtWidgets.QSplitter(QtCore.Qt.Orientation.Horizontal)
         splitter.setHandleWidth(6)
+
+        self.spawn_scroll = QtWidgets.QScrollArea()
+        self.spawn_scroll.setWidgetResizable(True)
+        self.spawn_scroll.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.spawn_scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.spawn_scroll.setWidget(self.spawn_panel)
 
         self.left_scroll = QtWidgets.QScrollArea()
         self.left_scroll.setWidgetResizable(True)
@@ -675,22 +742,25 @@ class MainWindow(QtWidgets.QMainWindow):
         self.config_scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.config_scroll.setWidget(self.config_panel)
 
+        splitter.addWidget(self.spawn_scroll)
         splitter.addWidget(self.left_scroll)
         splitter.addWidget(self.board)
         splitter.addWidget(self.right_scroll)
         splitter.addWidget(self.insights_scroll)
         splitter.addWidget(self.config_scroll)
         splitter.setStretchFactor(0, 0)
-        splitter.setStretchFactor(1, 1)
-        splitter.setStretchFactor(2, 0)
+        splitter.setStretchFactor(1, 0)
+        splitter.setStretchFactor(2, 1)
         splitter.setStretchFactor(3, 0)
         splitter.setStretchFactor(4, 0)
+        splitter.setStretchFactor(5, 0)
 
         vlayout.addWidget(splitter, 1)
 
         self.setCentralWidget(container)
 
         self.panel_widgets = {
+            "spawn": self.spawn_scroll,
             "brush": self.left_scroll,
             "stats": self.right_scroll,
             "insights": self.insights_scroll,
@@ -698,6 +768,7 @@ class MainWindow(QtWidgets.QMainWindow):
         }
         self.panel_toggle_bar.panel_toggled.connect(self._handle_panel_toggle)
         self.insights_panel.metric_changed.connect(self._update_insights_plot)
+        self.spawn_scroll.hide()
         self.insights_scroll.hide()
         self.config_panel.params_changed.connect(self._apply_params)
         self.config_scroll.hide()
@@ -712,6 +783,7 @@ class MainWindow(QtWidgets.QMainWindow):
             reset_arch=True,
         )
         self.board.set_policy_manager(self.policy_mgr, enabled=False)
+        self.allowed_species = self.spawn_panel.allowed_species()
 
         self.res_window: ResourceWindow | None = None
         self.policy_window: PolicyVizWindow | None = None
@@ -813,6 +885,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.controls.policy_toggle.connect(self.toggle_policy)
         self.controls.policy_viz_clicked.connect(self._show_policy_viz)
         self.brush_panel.brush_changed.connect(self._set_brush)
+        self.spawn_panel.allowed_changed.connect(self._update_allowed_species)
 
     def _tick(self) -> None:
         # ensure toggle state is respected even if a signal was missed
@@ -858,7 +931,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def randomize(self, density: float) -> None:
         self.timer.stop()
-        self.board.randomize(density)
+        self.board.randomize(density, self.allowed_species)
         self.gen = 0
         self.death_counts[:] = 0
         self.kill_counts[:] = 0
@@ -866,6 +939,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self._update_status()
         self.stats_panel.update_counts(self.alive_counts, self.death_counts, self.kill_counts)
         self._reset_history_and_snapshot()
+
+    def _update_allowed_species(self, allowed: list[int]) -> None:
+        self.allowed_species = allowed or [1, 2, 3, 4, 5]
+        self.status.showMessage(f"Random spawns: {', '.join(map(str, self.allowed_species))}", 1500)
 
     def set_wrap(self, wrap: bool) -> None:
         self.board.set_wrap(wrap)

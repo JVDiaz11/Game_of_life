@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 import logging
+from pathlib import Path
 from typing import Dict, Tuple
 
 import numpy as np
@@ -11,7 +12,7 @@ from numpy.lib.stride_tricks import sliding_window_view
 from .memory import MemoryLayer, MemoryConfig
 from .resources import ResourceLayer, ResourceConfig
 from .resource_map import ResourceMapManager
-from .species_policy import SpeciesPolicyManager, NUM_STATES, PATCH
+from .species_policy import SpeciesPolicyManager, NUM_STATES, PATCH, SHARED_CH, OBS_CH
 
 logger = logging.getLogger("gol")
 
@@ -52,12 +53,14 @@ class EnvironmentEngine:
         self.resource_map = ResourceMapManager.create(rows, cols, self.cfg.resource)
         self.resources = self.resource_map.layer
         self.memory = MemoryLayer(rows, cols, self.cfg.memory)
+        self.shared_state: Dict[int, Tuple[float, float, float]] = {}
         self.energy = np.zeros((rows, cols), dtype=np.float32)
         _log("EnvironmentEngine initialized", rows=rows, cols=cols)
 
     def reset(self) -> None:
         self.resource_map.reset()
         self.memory.reset()
+        self.shared_state = {}
         self.energy[:] = 0.0
         _log("Environment reset")
 
@@ -83,13 +86,14 @@ class EnvironmentEngine:
                 self._policy_seen = True
             actions, logprobs, values = policy_mgr.act(obs, center_species, train=True)
             actions_np = actions.view(g_prev.shape).cpu().numpy()
-            candidate, self.energy = self._apply_actions(g_prev, self.energy, actions_np, wrap)
+            candidate, self.energy, barrier_hits = self._apply_actions(g_prev, self.energy, actions_np, wrap)
         else:
             obs = None
             center_species = None
             logprobs = None
             values = None
             candidate = self._rule_step(g_prev, wrap)
+            barrier_hits = np.zeros_like(candidate, dtype=bool)
 
         births = (candidate > 0) & (g_prev <= 0)
         shortages = np.zeros_like(candidate, dtype=bool)
@@ -129,9 +133,14 @@ class EnvironmentEngine:
         candidate[died_energy] = 0
         self.energy[died_energy] = 0.0
 
-        reward_grid = self._compute_rewards(g_prev, candidate, shortages)
-        self.memory.set_reward(reward_grid)
+        reward_grid = self._compute_rewards(g_prev, candidate, shortages, barrier_hits)
+        pos_mask = reward_grid > 0
+        neg_mask = reward_grid < 0
+        self.memory.record_events(pos_mask, neg_mask, barrier_hits)
         self.memory.reset_food_timer(food_ok)
+
+        self._update_shared_state(g_prev, reward_grid, barrier_hits)
+        self._write_species_memory_logs(g_prev, reward_grid, barrier_hits)
 
         info: Dict[str, float] = {
             "births": float(births.sum()),
@@ -158,11 +167,12 @@ class EnvironmentEngine:
         )
         return candidate.astype(np.int8), info
 
-    def _apply_actions(self, g_prev: np.ndarray, energy: np.ndarray, actions_np: np.ndarray, wrap: bool) -> tuple[np.ndarray, np.ndarray]:
+    def _apply_actions(self, g_prev: np.ndarray, energy: np.ndarray, actions_np: np.ndarray, wrap: bool) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         # action codes defined in species_policy.NUM_ACTIONS
         # 0 stay, 1 die, 2 up, 3 down, 4 left, 5 right, 6 claim
         candidate = g_prev.copy()
         energy_new = energy.copy()
+        barrier_hits = np.zeros_like(g_prev, dtype=bool)
 
         alive_mask = g_prev > 0
 
@@ -195,6 +205,7 @@ class EnvironmentEngine:
 
             for r, c, nr, nc in zip(r_idx, c_idx, tr, tc):
                 if g_prev[nr, nc] == -1:
+                    barrier_hits[r, c] = True
                     continue  # barrier
                 if candidate[nr, nc] == 0:
                     candidate[nr, nc] = g_prev[r, c]
@@ -217,7 +228,7 @@ class EnvironmentEngine:
         claim_mask = (actions_np == 6) & (candidate <= 0)
         candidate[claim_mask] = species_for_claim[claim_mask]
 
-        return candidate, energy_new
+        return candidate, energy_new, barrier_hits
 
     def _birth_cost(self, species: int) -> float:
         idx = min(species - 1, len(self.cfg.birth_costs) - 1)
@@ -298,24 +309,39 @@ class EnvironmentEngine:
         state_win = sliding_window_view(state_pad, (PATCH, PATCH))  # (H, W, PATCH, PATCH)
         res_win = sliding_window_view(res_pad, (PATCH, PATCH))
         mem_win = sliding_window_view(mem_pad, (PATCH, PATCH), axis=(0, 1))
+        mem_win = np.moveaxis(mem_win, 2, -1)  # move channels to last dim for concat
 
         mapped = np.clip(state_win + 1, 0, NUM_STATES - 1)
         oh = np.eye(NUM_STATES, dtype=np.float32)[mapped]  # (H, W, PATCH, PATCH, NUM_STATES)
 
-        obs = np.concatenate(
+        base_stack = np.concatenate(
             [
-                oh.reshape(H, W, -1),
-                res_win.reshape(H, W, -1).astype(np.float32),
-                mem_win.reshape(H, W, -1).astype(np.float32),
+                oh,
+                res_win[..., None].astype(np.float32),
+                mem_win.astype(np.float32),
             ],
             axis=-1,
-        ).reshape(-1, PATCH * PATCH * (NUM_STATES + self.memory.cfg.channels + 1))
+        )  # (H, W, PATCH, PATCH, OBS_BASE_CH)
 
         center_species = np.where(grid <= 0, 0, grid).reshape(-1).astype(np.int64)
 
-        return torch.from_numpy(obs).float(), torch.from_numpy(center_species)
+        # Broadcast shared species-level vector across the patch so the conv trunk
+        # can keep per-cell spatial structure without losing which species produced it.
+        shared = np.zeros((center_species.shape[0], PATCH, PATCH, SHARED_CH), dtype=np.float32)
+        for sid, vec in getattr(self, "shared_state", {}).items():
+            mask = center_species == sid
+            if not mask.any():
+                continue
+            shared[mask] = np.array(vec, dtype=np.float32).reshape(1, 1, 1, SHARED_CH)
 
-    def _compute_rewards(self, prev: np.ndarray, new: np.ndarray, shortages: np.ndarray) -> np.ndarray:
+        full = np.concatenate(
+            [base_stack.reshape(-1, PATCH, PATCH, base_stack.shape[-1]), shared], axis=-1
+        )
+        obs = torch.from_numpy(full).permute(0, 3, 1, 2).contiguous().float()  # (N, OBS_CH, PATCH, PATCH)
+
+        return obs, torch.from_numpy(center_species)
+
+    def _compute_rewards(self, prev: np.ndarray, new: np.ndarray, shortages: np.ndarray, barrier_hits: np.ndarray) -> np.ndarray:
         reward = np.zeros_like(prev, dtype=np.float32)
         alive_prev = prev > 0
         alive_new = new > 0
@@ -333,4 +359,37 @@ class EnvironmentEngine:
         reward[takeover] += 1.0
 
         reward[shortages] -= 1.0
+        reward[barrier_hits] -= 0.5
         return reward
+
+    def _update_shared_state(self, prev: np.ndarray, reward_grid: np.ndarray, barrier_hits: np.ndarray) -> None:
+        total_cells = prev.size
+        decay = 0.8
+        for sid in range(1, self.cfg.species_count + 1):
+            mask = prev == sid
+            if not mask.any():
+                continue
+            pos = float((reward_grid > 0)[mask].sum()) / total_cells
+            neg = float((reward_grid < 0)[mask].sum()) / total_cells
+            barrier_flag = 1.0 if barrier_hits[mask].any() else 0.0
+            prev_vec = self.shared_state.get(sid, (0.0, 0.0, 0.0))
+            new_vec = (
+                decay * prev_vec[0] + (1 - decay) * pos,
+                decay * prev_vec[1] + (1 - decay) * neg,
+                max(prev_vec[2] * decay, barrier_flag),
+            )
+            self.shared_state[sid] = new_vec
+
+    def _write_species_memory_logs(self, prev: np.ndarray, reward_grid: np.ndarray, barrier_hits: np.ndarray) -> None:
+        species_dir = Path(__file__).resolve().parent.parent / "species"
+        species_dir.mkdir(parents=True, exist_ok=True)
+        for sid in range(1, self.cfg.species_count + 1):
+            mask = prev == sid
+            if not mask.any():
+                continue
+            pos = int((reward_grid > 0)[mask].sum())
+            neg = int((reward_grid < 0)[mask].sum())
+            barrier = int(barrier_hits[mask].sum())
+            path = species_dir / f"species{sid}_memory.txt"
+            with path.open("a", encoding="utf-8") as f:
+                f.write(f"pos={pos} neg={neg} barrier={barrier}\n")

@@ -17,10 +17,14 @@ logger = logging.getLogger("gol.policy")
 logger.setLevel(logging.DEBUG)
 
 NUM_STATES = 7  # barrier, empty, species1..5
-PATCH = 5
+PATCH = 3
 RESOURCE_CH = 1
-MEMORY_CH = 2  # keep in sync with MemoryLayer
-OBS_DIM = PATCH * PATCH * (NUM_STATES + RESOURCE_CH + MEMORY_CH)
+MEMORY_CH = 4  # keep in sync with MemoryLayer
+SHARED_CH = 3  # broadcast per-species stats
+OBS_BASE_CH = NUM_STATES + RESOURCE_CH + MEMORY_CH
+OBS_CH = OBS_BASE_CH + SHARED_CH
+# keep legacy name for buffer sizing; obs tensors are (N, OBS_CH, PATCH, PATCH)
+OBS_DIM = OBS_CH * PATCH * PATCH
 # Action mapping:
 # 0 stay (keep current)
 # 1 die (empty)
@@ -38,8 +42,18 @@ SPECIES_DIR.mkdir(parents=True, exist_ok=True)
 class PPOPolicyNet(nn.Module):
     def __init__(self, hidden_layers: List[int]) -> None:
         super().__init__()
+        # Convolution keeps spatial structure of the 3x3 patch so the network
+        # can reason about which neighbor produced which signal before flattening.
+        conv_out_channels = 32
+        self.conv = nn.Sequential(
+            nn.Conv2d(OBS_CH, conv_out_channels, kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(conv_out_channels, conv_out_channels, kernel_size=3, padding=1),
+            nn.ReLU(),
+        )
+
         layers: List[nn.Module] = []
-        in_features = OBS_DIM
+        in_features = conv_out_channels * PATCH * PATCH
         for h in hidden_layers:
             layers.append(nn.Linear(in_features, h))
             layers.append(nn.ReLU())
@@ -49,7 +63,10 @@ class PPOPolicyNet(nn.Module):
         self.value_head = nn.Linear(in_features, 1)
 
     def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
-        z = self.trunk(x)
+        # x: (N, OBS_CH, PATCH, PATCH)
+        z = self.conv(x)
+        z = torch.flatten(z, start_dim=1)
+        z = self.trunk(z)
         logits = self.policy_head(z)
         value = self.value_head(z).squeeze(-1)
         return logits, value
@@ -291,9 +308,9 @@ class SpeciesPolicyManager:
                         "mutate_every": species_cfg.mutate_every,
                         "param_count": sum(p.numel() for p in self.models[sid].parameters()),
                         "logits_mean": float(logits.mean()),
-                        "logits_std": float(logits.std()),
+                        "logits_std": float(logits.std(unbiased=False)),
                         "value_mean": float(value.mean()),
-                        "value_std": float(value.std()),
+                        "value_std": float(value.std(unbiased=False)),
                         "action_dist": act_probs,
                         "buffer_fill": self.buffers[sid].size() / max(1, self.buffer_cfg.capacity),
                     }
@@ -373,9 +390,7 @@ def _pad_and_copy_mlp(src_layers: List[nn.Linear], dst_layers: List[nn.Linear]) 
     for s_layer, d_layer in zip(src_layers, dst_layers):
         with torch.no_grad():
             rows = min(d_layer.out_features, s_layer.out_features)
-            trainer_cfgs=trainer_cfgs,
             cols = min(d_layer.in_features, s_layer.in_features)
-            species_cfgs=species_cfgs,
             d_layer.weight[:rows, :cols].copy_(s_layer.weight[:rows, :cols])
             if s_layer.bias is not None and d_layer.bias is not None:
                 d_layer.bias[:rows].copy_(s_layer.bias[:rows])

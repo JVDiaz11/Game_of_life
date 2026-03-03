@@ -1,491 +1,436 @@
-2026-03-03 14:17:59,767 [DEBUG] App start
-2026-03-03 14:17:59,811 [DEBUG] Resources reset | baseline=1.0
-2026-03-03 14:17:59,812 [DEBUG] ResourceMapManager.create | rows=80, cols=110
-2026-03-03 14:17:59,812 [DEBUG] EnvironmentEngine initialized | rows=80, cols=110
-2026-03-03 14:17:59,838 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.5000295639038086, rmax=2.9997267723083496, rmean=1.7513642311096191
-2026-03-03 14:17:59,839 [DEBUG] Resource map randomized | rmin=0.5000295639038086, rmax=2.9997267723083496, rmean=1.7513642311096191
-2026-03-03 14:17:59,839 [DEBUG] Resources randomized | rmin=0.5000295639038086, rmax=2.9997267723083496, rmean=1.7513642311096191
-2026-03-03 14:17:59,839 [DEBUG] LifeWidget initialized | rows=80, cols=110
-2026-03-03 14:18:03,096 [DEBUG] Policy manager toggled | enabled=False
-2026-03-03 14:21:52,561 [DEBUG] Resources reset | baseline=1.0
-2026-03-03 14:21:52,562 [DEBUG] Resource map reset
-2026-03-03 14:21:52,562 [DEBUG] Environment reset
-2026-03-03 14:21:52,563 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.5000079274177551, rmax=2.9997994899749756, rmean=1.7519818544387817
-2026-03-03 14:21:52,563 [DEBUG] Resource map randomized | rmin=0.5000079274177551, rmax=2.9997994899749756, rmean=1.7519818544387817
-2026-03-03 14:21:52,563 [DEBUG] Resources randomized | rmin=0.5000079274177551, rmax=2.9997994899749756, rmean=1.7519818544387817
-2026-03-03 14:21:52,563 [DEBUG] Board randomized | density=0.2, alive=1769
-2026-03-03 14:21:53,258 [DEBUG] Resources reset | baseline=1.0
-2026-03-03 14:21:53,259 [DEBUG] Resource map reset
-2026-03-03 14:21:53,259 [DEBUG] Environment reset
-2026-03-03 14:21:53,259 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.500308632850647, rmax=2.99992036819458, rmean=1.7455060482025146
-2026-03-03 14:21:53,260 [DEBUG] Resource map randomized | rmin=0.500308632850647, rmax=2.99992036819458, rmean=1.7455060482025146
-2026-03-03 14:21:53,260 [DEBUG] Resources randomized | rmin=0.500308632850647, rmax=2.99992036819458, rmean=1.7455060482025146
-2026-03-03 14:21:53,260 [DEBUG] Board randomized | density=0.2, alive=1719
-2026-03-03 14:21:53,397 [DEBUG] Resources reset | baseline=1.0
-2026-03-03 14:21:53,397 [DEBUG] Resource map reset
-2026-03-03 14:21:53,397 [DEBUG] Environment reset
-2026-03-03 14:21:53,398 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.5001002550125122, rmax=2.999833345413208, rmean=1.756025791168213
-2026-03-03 14:21:53,398 [DEBUG] Resource map randomized | rmin=0.5001002550125122, rmax=2.999833345413208, rmean=1.756025791168213
-2026-03-03 14:21:53,399 [DEBUG] Resources randomized | rmin=0.5001002550125122, rmax=2.999833345413208, rmean=1.756025791168213
-2026-03-03 14:21:53,399 [DEBUG] Board randomized | density=0.2, alive=1777
-2026-03-03 14:21:53,535 [DEBUG] Resources reset | baseline=1.0
-2026-03-03 14:21:53,536 [DEBUG] Resource map reset
-2026-03-03 14:21:53,537 [DEBUG] Environment reset
-2026-03-03 14:21:53,538 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.5001180171966553, rmax=2.99995493888855, rmean=1.7604529857635498
-2026-03-03 14:21:53,538 [DEBUG] Resource map randomized | rmin=0.5001180171966553, rmax=2.99995493888855, rmean=1.7604529857635498
-2026-03-03 14:21:53,539 [DEBUG] Resources randomized | rmin=0.5001180171966553, rmax=2.99995493888855, rmean=1.7604529857635498
-2026-03-03 14:21:53,539 [DEBUG] Board randomized | density=0.2, alive=1789
-2026-03-03 14:21:53,750 [DEBUG] Resources reset | baseline=1.0
-2026-03-03 14:21:53,751 [DEBUG] Resource map reset
-2026-03-03 14:21:53,752 [DEBUG] Environment reset
-2026-03-03 14:21:53,753 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.5002000331878662, rmax=2.999809741973877, rmean=1.7427788972854614
-2026-03-03 14:21:53,753 [DEBUG] Resource map randomized | rmin=0.5002000331878662, rmax=2.999809741973877, rmean=1.7427788972854614
-2026-03-03 14:21:53,754 [DEBUG] Resources randomized | rmin=0.5002000331878662, rmax=2.999809741973877, rmean=1.7427788972854614
-2026-03-03 14:21:53,754 [DEBUG] Board randomized | density=0.2, alive=1730
-2026-03-03 14:21:56,534 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.5006422996520996, rmax=2.998800039291382, rmean=1.7500048875808716
-2026-03-03 14:21:56,535 [DEBUG] Resource map randomized | rmin=0.5006422996520996, rmax=2.998800039291382, rmean=1.7500048875808716
-2026-03-03 14:21:56,535 [DEBUG] Resources randomized | rmin=0.5006422996520996, rmax=2.998800039291382, rmean=1.7500048875808716
-2026-03-03 14:22:00,070 [DEBUG] Policy manager toggled | enabled=True
-2026-03-03 14:22:00,071 [DEBUG] Learning checkbox toggled | enabled=True
-2026-03-03 14:22:03,771 [DEBUG] Resources regenerated | regen=0.25, rmean=2.000005006790161
-2026-03-03 14:22:03,771 [DEBUG] Environment step start | wrap=True, alive=1730, energy_mean=-0.10000000894069672
-2026-03-03 14:22:03,793 [DEBUG] Policy step engaged | obs_count=8800
-2026-03-03 14:22:03,829 [DEBUG] Policy device | device=cuda | cuda_available=True | model_device=cuda:0
-2026-03-03 14:22:04,529 [DEBUG] Resources consumed | amount=0.75, feasible=146, shortage=0, rmean=1.9875619411468506
-2026-03-03 14:22:04,529 [DEBUG] Resources consumed | amount=0.35, feasible=125, shortage=0, rmean=1.9825900793075562
-2026-03-03 14:22:04,530 [DEBUG] Resources consumed | amount=0.75, feasible=154, shortage=0, rmean=1.9694651365280151
-2026-03-03 14:22:04,530 [DEBUG] Resources consumed | amount=0.35, feasible=123, shortage=0, rmean=1.9645730257034302
-2026-03-03 14:22:04,530 [DEBUG] Resources consumed | amount=0.75, feasible=157, shortage=0, rmean=1.9511922597885132
-2026-03-03 14:22:04,531 [DEBUG] Resources consumed | amount=0.35, feasible=118, shortage=0, rmean=1.946498990058899
-2026-03-03 14:22:04,531 [DEBUG] Resources consumed | amount=0.75, feasible=136, shortage=0, rmean=1.934908151626587
-2026-03-03 14:22:04,531 [DEBUG] Resources consumed | amount=0.35, feasible=123, shortage=0, rmean=1.9300163984298706
-2026-03-03 14:22:04,532 [DEBUG] Resources consumed | amount=0.75, feasible=145, shortage=0, rmean=1.9176584482192993
-2026-03-03 14:22:04,532 [DEBUG] Resources consumed | amount=0.35, feasible=138, shortage=0, rmean=1.9121696949005127
-2026-03-03 14:22:04,548 [DEBUG] Buffer fill | species=1 | size=7419 | ready=True
-2026-03-03 14:22:06,203 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=7419
-2026-03-03 14:22:06,204 [DEBUG] Buffer fill | species=2 | size=350 | ready=False
-2026-03-03 14:22:06,204 [DEBUG] Buffer fill | species=3 | size=355 | ready=False
-2026-03-03 14:22:06,205 [DEBUG] Buffer fill | species=4 | size=320 | ready=False
-2026-03-03 14:22:06,205 [DEBUG] Buffer fill | species=5 | size=356 | ready=False
-2026-03-03 14:22:06,205 [DEBUG] Environment step end | births=738.0, starved=0.0, resources_avg=1.9121696949005127, reward_mean=-0.011704545468091965, energy_mean=-0.039375003427267075
-2026-03-03 14:22:06,206 [DEBUG] Step computed | wrap=True, alive=1365, resources_mean=1.9121696949005127
-2026-03-03 14:22:06,257 [DEBUG] Resources regenerated | regen=0.25, rmean=2.1621696949005127
-2026-03-03 14:22:06,258 [DEBUG] Environment step start | wrap=True, alive=1365, energy_mean=-0.1393750160932541
-2026-03-03 14:22:06,285 [DEBUG] Resources consumed | amount=0.75, feasible=13, shortage=0, rmean=2.1610617637634277
-2026-03-03 14:22:06,285 [DEBUG] Resources consumed | amount=0.35, feasible=238, shortage=4, rmean=2.151454448699951
-2026-03-03 14:22:06,286 [DEBUG] Resources consumed | amount=0.75, feasible=121, shortage=0, rmean=2.141141891479492
-2026-03-03 14:22:06,287 [DEBUG] Resources consumed | amount=0.35, feasible=103, shortage=1, rmean=2.137016534805298
-2026-03-03 14:22:06,287 [DEBUG] Resources consumed | amount=0.75, feasible=142, shortage=0, rmean=2.1249144077301025
-2026-03-03 14:22:06,288 [DEBUG] Resources consumed | amount=0.35, feasible=88, shortage=2, rmean=2.121349811553955
-2026-03-03 14:22:06,288 [DEBUG] Resources consumed | amount=0.75, feasible=125, shortage=0, rmean=2.11069655418396
-2026-03-03 14:22:06,288 [DEBUG] Resources consumed | amount=0.35, feasible=85, shortage=1, rmean=2.10728120803833
-2026-03-03 14:22:06,289 [DEBUG] Resources consumed | amount=0.75, feasible=126, shortage=0, rmean=2.0965425968170166
-2026-03-03 14:22:06,289 [DEBUG] Resources consumed | amount=0.35, feasible=100, shortage=4, rmean=2.09242844581604
-2026-03-03 14:22:06,293 [DEBUG] Buffer fill | species=1 | size=7706 | ready=True
-2026-03-03 14:22:07,897 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=7706
-2026-03-03 14:22:07,897 [DEBUG] Buffer fill | species=2 | size=627 | ready=True
-2026-03-03 14:22:08,011 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=627
-2026-03-03 14:22:08,011 [DEBUG] Buffer fill | species=3 | size=630 | ready=True
-2026-03-03 14:22:08,134 [DEBUG] PPO update | species=3 | device=cuda | batch_obs=630
-2026-03-03 14:22:08,135 [DEBUG] Buffer fill | species=4 | size=579 | ready=True
-2026-03-03 14:22:08,253 [DEBUG] PPO update | species=4 | device=cuda | batch_obs=579
-2026-03-03 14:22:08,254 [DEBUG] Buffer fill | species=5 | size=639 | ready=True
-2026-03-03 14:22:08,382 [DEBUG] PPO update | species=5 | device=cuda | batch_obs=639
-2026-03-03 14:22:08,382 [DEBUG] Environment step end | births=527.0, starved=12.0, resources_avg=2.09242844581604, reward_mean=0.017500000074505806, energy_mean=-0.09054546058177948
-2026-03-03 14:22:08,383 [DEBUG] Step computed | wrap=True, alive=1141, resources_mean=2.09242844581604
-2026-03-03 14:22:08,441 [DEBUG] Resources regenerated | regen=0.25, rmean=2.34242844581604
-2026-03-03 14:22:08,442 [DEBUG] Environment step start | wrap=True, alive=1141, energy_mean=-0.190545454621315
-2026-03-03 14:22:08,469 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=2.342343330383301
-2026-03-03 14:22:08,470 [DEBUG] Resources consumed | amount=0.35, feasible=229, shortage=7, rmean=2.333003044128418
-2026-03-03 14:22:08,470 [DEBUG] Resources consumed | amount=0.75, feasible=87, shortage=1, rmean=2.325507879257202
-2026-03-03 14:22:08,471 [DEBUG] Resources consumed | amount=0.35, feasible=93, shortage=0, rmean=2.3218092918395996
-2026-03-03 14:22:08,471 [DEBUG] Resources consumed | amount=0.75, feasible=93, shortage=3, rmean=2.313671827316284
-2026-03-03 14:22:08,471 [DEBUG] Resources consumed | amount=0.35, feasible=104, shortage=1, rmean=2.3095014095306396
-2026-03-03 14:22:08,472 [DEBUG] Resources consumed | amount=0.75, feasible=94, shortage=0, rmean=2.301490068435669
-2026-03-03 14:22:08,472 [DEBUG] Resources consumed | amount=0.35, feasible=88, shortage=1, rmean=2.297957181930542
-2026-03-03 14:22:08,472 [DEBUG] Resources consumed | amount=0.75, feasible=82, shortage=2, rmean=2.2908506393432617
-2026-03-03 14:22:08,473 [DEBUG] Resources consumed | amount=0.35, feasible=111, shortage=3, rmean=2.2863306999206543
-2026-03-03 14:22:10,128 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=7910
-2026-03-03 14:22:10,128 [DEBUG] Environment step end | births=363.0, starved=18.0, resources_avg=2.2863306999206543, reward_mean=0.03284090757369995, energy_mean=-0.150663360953331
-2026-03-03 14:22:10,130 [DEBUG] Step computed | wrap=True, alive=982, resources_mean=2.2863306999206543
-2026-03-03 14:22:10,183 [DEBUG] Resources regenerated | regen=0.25, rmean=2.5363306999206543
-2026-03-03 14:22:10,183 [DEBUG] Environment step start | wrap=True, alive=982, energy_mean=-0.2506633698940277
-2026-03-03 14:22:10,209 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=2.536245584487915
-2026-03-03 14:22:10,210 [DEBUG] Resources consumed | amount=0.35, feasible=210, shortage=7, rmean=2.527662515640259
-2026-03-03 14:22:10,210 [DEBUG] Resources consumed | amount=0.75, feasible=60, shortage=1, rmean=2.5224905014038086
-2026-03-03 14:22:10,210 [DEBUG] Resources consumed | amount=0.35, feasible=100, shortage=2, rmean=2.5184407234191895
-2026-03-03 14:22:10,211 [DEBUG] Resources consumed | amount=0.75, feasible=83, shortage=0, rmean=2.511366844177246
-2026-03-03 14:22:10,211 [DEBUG] Resources consumed | amount=0.35, feasible=84, shortage=2, rmean=2.50795578956604
-2026-03-03 14:22:10,211 [DEBUG] Resources consumed | amount=0.75, feasible=63, shortage=0, rmean=2.502586603164673
-2026-03-03 14:22:10,211 [DEBUG] Resources consumed | amount=0.35, feasible=94, shortage=2, rmean=2.498772144317627
-2026-03-03 14:22:10,212 [DEBUG] Resources consumed | amount=0.75, feasible=72, shortage=0, rmean=2.492635726928711
-2026-03-03 14:22:10,212 [DEBUG] Resources consumed | amount=0.35, feasible=85, shortage=1, rmean=2.489222288131714
-2026-03-03 14:22:12,849 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8048
-2026-03-03 14:22:12,850 [DEBUG] Environment step end | births=280.0, starved=15.0, resources_avg=2.489222288131714, reward_mean=0.03386363759636879, energy_mean=-0.21716195344924927
-2026-03-03 14:22:12,851 [DEBUG] Step computed | wrap=True, alive=852, resources_mean=2.489222288131714
-2026-03-03 14:22:12,894 [DEBUG] Policy viz window shown
-2026-03-03 14:22:12,970 [DEBUG] Resources regenerated | regen=0.25, rmean=2.739222288131714
-2026-03-03 14:22:12,971 [DEBUG] Environment step start | wrap=True, alive=852, energy_mean=-0.3171619474887848
-2026-03-03 14:22:13,001 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=2.7391371726989746
-2026-03-03 14:22:13,002 [DEBUG] Resources consumed | amount=0.35, feasible=197, shortage=3, rmean=2.731205701828003
-2026-03-03 14:22:13,002 [DEBUG] Resources consumed | amount=0.75, feasible=69, shortage=0, rmean=2.725324869155884
-2026-03-03 14:22:13,003 [DEBUG] Resources consumed | amount=0.35, feasible=76, shortage=0, rmean=2.7223024368286133
-2026-03-03 14:22:13,003 [DEBUG] Resources consumed | amount=0.75, feasible=63, shortage=2, rmean=2.7168264389038086
-2026-03-03 14:22:13,003 [DEBUG] Resources consumed | amount=0.35, feasible=83, shortage=0, rmean=2.7135250568389893
-2026-03-03 14:22:13,004 [DEBUG] Resources consumed | amount=0.75, feasible=54, shortage=1, rmean=2.7088661193847656
-2026-03-03 14:22:13,005 [DEBUG] Resources consumed | amount=0.35, feasible=87, shortage=1, rmean=2.70536732673645
-2026-03-03 14:22:13,005 [DEBUG] Resources consumed | amount=0.75, feasible=56, shortage=0, rmean=2.700594663619995
-2026-03-03 14:22:13,006 [DEBUG] Resources consumed | amount=0.35, feasible=76, shortage=1, rmean=2.6975324153900146
-2026-03-03 14:22:14,612 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8159
-2026-03-03 14:22:14,712 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=564
-2026-03-03 14:22:14,821 [DEBUG] PPO update | species=3 | device=cuda | batch_obs=594
-2026-03-03 14:22:14,985 [DEBUG] PPO update | species=4 | device=cuda | batch_obs=549
-2026-03-03 14:22:15,088 [DEBUG] PPO update | species=5 | device=cuda | batch_obs=576
-2026-03-03 14:22:15,089 [DEBUG] Environment step end | births=246.0, starved=8.0, resources_avg=2.6975324153900146, reward_mean=0.0376136377453804, energy_mean=-0.28618323802948
-2026-03-03 14:22:15,090 [DEBUG] Step computed | wrap=True, alive=762, resources_mean=2.6975324153900146
-2026-03-03 14:22:15,188 [DEBUG] Resources regenerated | regen=0.25, rmean=2.9475324153900146
-2026-03-03 14:22:15,189 [DEBUG] Environment step start | wrap=True, alive=762, energy_mean=-0.3861832618713379
-2026-03-03 14:22:15,212 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.9475324153900146
-2026-03-03 14:22:15,213 [DEBUG] Resources consumed | amount=0.35, feasible=187, shortage=9, rmean=2.9397952556610107
-2026-03-03 14:22:15,213 [DEBUG] Resources consumed | amount=0.75, feasible=37, shortage=3, rmean=2.9364309310913086
-2026-03-03 14:22:15,214 [DEBUG] Resources consumed | amount=0.35, feasible=96, shortage=0, rmean=2.932612657546997
-2026-03-03 14:22:15,214 [DEBUG] Resources consumed | amount=0.75, feasible=53, shortage=0, rmean=2.928095817565918
-2026-03-03 14:22:15,214 [DEBUG] Resources consumed | amount=0.35, feasible=80, shortage=1, rmean=2.924879550933838
-2026-03-03 14:22:15,215 [DEBUG] Resources consumed | amount=0.75, feasible=41, shortage=0, rmean=2.9213850498199463
-2026-03-03 14:22:15,215 [DEBUG] Resources consumed | amount=0.35, feasible=92, shortage=1, rmean=2.91768741607666
-2026-03-03 14:22:15,215 [DEBUG] Resources consumed | amount=0.75, feasible=24, shortage=1, rmean=2.9155704975128174
-2026-03-03 14:22:15,216 [DEBUG] Resources consumed | amount=0.35, feasible=95, shortage=3, rmean=2.9116876125335693
-2026-03-03 14:22:15,223 [DEBUG] Buffer fill | species=1 | size=8236 | ready=True
-2026-03-03 14:22:16,815 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8236
-2026-03-03 14:22:16,816 [DEBUG] Environment step end | births=159.0, starved=18.0, resources_avg=2.9116876125335693, reward_mean=0.04749999940395355, energy_mean=-0.3571590781211853
-2026-03-03 14:22:16,817 [DEBUG] Step computed | wrap=True, alive=705, resources_mean=2.9116876125335693
-2026-03-03 14:22:16,929 [DEBUG] Resources regenerated | regen=0.25, rmean=3.1616876125335693
-2026-03-03 14:22:16,929 [DEBUG] Environment step start | wrap=True, alive=705, energy_mean=-0.4571591317653656
-2026-03-03 14:22:16,951 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.1616876125335693
-2026-03-03 14:22:16,952 [DEBUG] Resources consumed | amount=0.35, feasible=181, shortage=4, rmean=3.154348850250244
-2026-03-03 14:22:16,952 [DEBUG] Resources consumed | amount=0.75, feasible=35, shortage=0, rmean=3.1513657569885254
-2026-03-03 14:22:16,952 [DEBUG] Resources consumed | amount=0.35, feasible=87, shortage=1, rmean=3.1478703022003174
-2026-03-03 14:22:16,952 [DEBUG] Resources consumed | amount=0.75, feasible=34, shortage=1, rmean=3.1449031829833984
-2026-03-03 14:22:16,953 [DEBUG] Resources consumed | amount=0.35, feasible=89, shortage=0, rmean=3.1413631439208984
-2026-03-03 14:22:16,953 [DEBUG] Resources consumed | amount=0.75, feasible=34, shortage=0, rmean=3.138465404510498
-2026-03-03 14:22:16,953 [DEBUG] Resources consumed | amount=0.35, feasible=86, shortage=3, rmean=3.1349551677703857
-2026-03-03 14:22:16,953 [DEBUG] Resources consumed | amount=0.75, feasible=31, shortage=0, rmean=3.1323130130767822
-2026-03-03 14:22:16,954 [DEBUG] Resources consumed | amount=0.35, feasible=80, shortage=1, rmean=3.129101037979126
-2026-03-03 14:22:18,392 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8282
-2026-03-03 14:22:18,393 [DEBUG] Environment step end | births=135.0, starved=10.0, resources_avg=3.129101037979126, reward_mean=0.04738636314868927, energy_mean=-0.43140625953674316
-2026-03-03 14:22:18,394 [DEBUG] Step computed | wrap=True, alive=657, resources_mean=3.129101037979126
-2026-03-03 14:22:18,499 [DEBUG] Resources regenerated | regen=0.25, rmean=3.379101037979126
-2026-03-03 14:22:18,500 [DEBUG] Environment step start | wrap=True, alive=657, energy_mean=-0.5314063429832458
-2026-03-03 14:22:18,525 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=3.3790159225463867
-2026-03-03 14:22:18,525 [DEBUG] Resources consumed | amount=0.35, feasible=166, shortage=10, rmean=3.3720622062683105
-2026-03-03 14:22:18,526 [DEBUG] Resources consumed | amount=0.75, feasible=22, shortage=0, rmean=3.3701870441436768
-2026-03-03 14:22:18,526 [DEBUG] Resources consumed | amount=0.35, feasible=93, shortage=1, rmean=3.3664510250091553
-2026-03-03 14:22:18,526 [DEBUG] Resources consumed | amount=0.75, feasible=35, shortage=0, rmean=3.3634681701660156
-2026-03-03 14:22:18,527 [DEBUG] Resources consumed | amount=0.35, feasible=81, shortage=0, rmean=3.3602466583251953
-2026-03-03 14:22:18,527 [DEBUG] Resources consumed | amount=0.75, feasible=25, shortage=0, rmean=3.3581159114837646
-2026-03-03 14:22:18,527 [DEBUG] Resources consumed | amount=0.35, feasible=86, shortage=5, rmean=3.3545165061950684
-2026-03-03 14:22:18,527 [DEBUG] Resources consumed | amount=0.75, feasible=22, shortage=0, rmean=3.3526415824890137
-2026-03-03 14:22:18,528 [DEBUG] Resources consumed | amount=0.35, feasible=78, shortage=1, rmean=3.3495068550109863
-2026-03-03 14:22:20,073 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8324
-2026-03-03 14:22:20,073 [DEBUG] Environment step end | births=105.0, starved=17.0, resources_avg=3.3495068550109863, reward_mean=0.044431816786527634, energy_mean=-0.5082586407661438
-2026-03-03 14:22:20,075 [DEBUG] Step computed | wrap=True, alive=609, resources_mean=3.3495068550109863
-2026-03-03 14:22:20,182 [DEBUG] Resources regenerated | regen=0.25, rmean=3.5904581546783447
-2026-03-03 14:22:20,183 [DEBUG] Environment step start | wrap=True, alive=609, energy_mean=-0.6082586050033569
-2026-03-03 14:22:20,211 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.5904581546783447
-2026-03-03 14:22:20,211 [DEBUG] Resources consumed | amount=0.35, feasible=157, shortage=10, rmean=3.583876848220825
-2026-03-03 14:22:20,211 [DEBUG] Resources consumed | amount=0.75, feasible=29, shortage=0, rmean=3.5814054012298584
-2026-03-03 14:22:20,212 [DEBUG] Resources consumed | amount=0.35, feasible=79, shortage=2, rmean=3.578197717666626
-2026-03-03 14:22:20,212 [DEBUG] Resources consumed | amount=0.75, feasible=19, shortage=1, rmean=3.576505184173584
-2026-03-03 14:22:20,212 [DEBUG] Resources consumed | amount=0.35, feasible=87, shortage=2, rmean=3.5729708671569824
-2026-03-03 14:22:20,212 [DEBUG] Resources consumed | amount=0.75, feasible=18, shortage=0, rmean=3.571436882019043
-2026-03-03 14:22:20,212 [DEBUG] Resources consumed | amount=0.35, feasible=90, shortage=2, rmean=3.5677902698516846
-2026-03-03 14:22:20,213 [DEBUG] Resources consumed | amount=0.75, feasible=14, shortage=0, rmean=3.5665972232818604
-2026-03-03 14:22:20,213 [DEBUG] Resources consumed | amount=0.35, feasible=77, shortage=2, rmean=3.563464641571045
-2026-03-03 14:22:21,610 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8358
-2026-03-03 14:22:21,737 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=515
-2026-03-03 14:22:21,861 [DEBUG] PPO update | species=3 | device=cuda | batch_obs=518
-2026-03-03 14:22:21,862 [DEBUG] Environment step end | births=81.0, starved=19.0, resources_avg=3.563464641571045, reward_mean=0.0446590892970562, energy_mean=-0.585747241973877
-2026-03-03 14:22:21,863 [DEBUG] Step computed | wrap=True, alive=570, resources_mean=3.563464641571045
-2026-03-03 14:22:21,974 [DEBUG] Resources regenerated | regen=0.25, rmean=3.7878258228302
-2026-03-03 14:22:21,975 [DEBUG] Environment step start | wrap=True, alive=570, energy_mean=-0.6857472062110901
-2026-03-03 14:22:22,000 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=3.787740707397461
-2026-03-03 14:22:22,000 [DEBUG] Resources consumed | amount=0.35, feasible=147, shortage=8, rmean=3.7816250324249268
-2026-03-03 14:22:22,001 [DEBUG] Resources consumed | amount=0.75, feasible=11, shortage=0, rmean=3.7806875705718994
-2026-03-03 14:22:22,001 [DEBUG] Resources consumed | amount=0.35, feasible=94, shortage=1, rmean=3.7769100666046143
-2026-03-03 14:22:22,002 [DEBUG] Resources consumed | amount=0.75, feasible=26, shortage=0, rmean=3.7746942043304443
-2026-03-03 14:22:22,002 [DEBUG] Resources consumed | amount=0.35, feasible=76, shortage=0, rmean=3.771671772003174
-2026-03-03 14:22:22,002 [DEBUG] Resources consumed | amount=0.75, feasible=13, shortage=0, rmean=3.770563840866089
-2026-03-03 14:22:22,002 [DEBUG] Resources consumed | amount=0.35, feasible=91, shortage=3, rmean=3.7668492794036865
-2026-03-03 14:22:22,003 [DEBUG] Resources consumed | amount=0.75, feasible=21, shortage=0, rmean=3.765059471130371
-2026-03-03 14:22:22,003 [DEBUG] Resources consumed | amount=0.35, feasible=62, shortage=1, rmean=3.762554168701172
-2026-03-03 14:22:23,713 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8387
-2026-03-03 14:22:23,820 [DEBUG] PPO update | species=4 | device=cuda | batch_obs=613
-2026-03-03 14:22:23,931 [DEBUG] PPO update | species=5 | device=cuda | batch_obs=553
-2026-03-03 14:22:23,932 [DEBUG] Environment step end | births=72.0, starved=13.0, resources_avg=3.762554168701172, reward_mean=0.045568183064460754, energy_mean=-0.6647471785545349
-2026-03-03 14:22:23,933 [DEBUG] Step computed | wrap=True, alive=542, resources_mean=3.762554168701172
-2026-03-03 14:22:24,048 [DEBUG] Resources regenerated | regen=0.25, rmean=3.9702818393707275
-2026-03-03 14:22:24,049 [DEBUG] Environment step start | wrap=True, alive=542, energy_mean=-0.7647472620010376
-2026-03-03 14:22:24,070 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.9702818393707275
-2026-03-03 14:22:24,071 [DEBUG] Resources consumed | amount=0.35, feasible=142, shortage=5, rmean=3.964470386505127
-2026-03-03 14:22:24,071 [DEBUG] Resources consumed | amount=0.75, feasible=8, shortage=0, rmean=3.9637885093688965
-2026-03-03 14:22:24,071 [DEBUG] Resources consumed | amount=0.35, feasible=93, shortage=1, rmean=3.9600541591644287
-2026-03-03 14:22:24,071 [DEBUG] Resources consumed | amount=0.75, feasible=17, shortage=1, rmean=3.9585485458374023
-2026-03-03 14:22:24,072 [DEBUG] Resources consumed | amount=0.35, feasible=79, shortage=1, rmean=3.9553728103637695
-2026-03-03 14:22:24,072 [DEBUG] Resources consumed | amount=0.75, feasible=12, shortage=0, rmean=3.954350233078003
-2026-03-03 14:22:24,073 [DEBUG] Resources consumed | amount=0.35, feasible=89, shortage=1, rmean=3.950772285461426
-2026-03-03 14:22:24,073 [DEBUG] Resources consumed | amount=0.75, feasible=15, shortage=0, rmean=3.949493885040283
-2026-03-03 14:22:24,073 [DEBUG] Resources consumed | amount=0.35, feasible=62, shortage=0, rmean=3.947028636932373
-2026-03-03 14:22:25,670 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8406
-2026-03-03 14:22:25,670 [DEBUG] Environment step end | births=53.0, starved=9.0, resources_avg=3.947028636932373, reward_mean=0.046136364340782166, energy_mean=-0.745653510093689
-2026-03-03 14:22:25,672 [DEBUG] Step computed | wrap=True, alive=517, resources_mean=3.947028636932373
-2026-03-03 14:22:25,780 [DEBUG] Resources regenerated | regen=0.25, rmean=4.13607931137085
-2026-03-03 14:22:25,781 [DEBUG] Environment step start | wrap=True, alive=517, energy_mean=-0.8456535339355469
-2026-03-03 14:22:25,808 [DEBUG] Resources consumed | amount=0.75, feasible=3, shortage=0, rmean=4.1358232498168945
-2026-03-03 14:22:25,808 [DEBUG] Resources consumed | amount=0.35, feasible=128, shortage=11, rmean=4.13035249710083
-2026-03-03 14:22:25,809 [DEBUG] Resources consumed | amount=0.75, feasible=7, shortage=0, rmean=4.129755973815918
-2026-03-03 14:22:25,809 [DEBUG] Resources consumed | amount=0.35, feasible=92, shortage=2, rmean=4.126022815704346
-2026-03-03 14:22:25,809 [DEBUG] Resources consumed | amount=0.75, feasible=16, shortage=0, rmean=4.124659061431885
-2026-03-03 14:22:25,809 [DEBUG] Resources consumed | amount=0.35, feasible=72, shortage=2, rmean=4.121724605560303
-2026-03-03 14:22:25,809 [DEBUG] Resources consumed | amount=0.75, feasible=10, shortage=0, rmean=4.1208720207214355
-2026-03-03 14:22:25,810 [DEBUG] Resources consumed | amount=0.35, feasible=89, shortage=1, rmean=4.117294788360596
-2026-03-03 14:22:25,810 [DEBUG] Resources consumed | amount=0.75, feasible=9, shortage=0, rmean=4.116528034210205
-2026-03-03 14:22:25,810 [DEBUG] Resources consumed | amount=0.35, feasible=59, shortage=2, rmean=4.114106178283691
-2026-03-03 14:22:27,253 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8425
-2026-03-03 14:22:27,253 [DEBUG] Environment step end | births=45.0, starved=18.0, resources_avg=4.114106178283691, reward_mean=0.04068181663751602, energy_mean=-0.8282899260520935
-2026-03-03 14:22:27,255 [DEBUG] Step computed | wrap=True, alive=485, resources_mean=4.114106178283691
-2026-03-03 14:22:27,366 [DEBUG] Resources regenerated | regen=0.25, rmean=4.28290319442749
-2026-03-03 14:22:27,367 [DEBUG] Environment step start | wrap=True, alive=485, energy_mean=-0.9282898902893066
-2026-03-03 14:22:27,390 [DEBUG] Resources consumed | amount=0.75, feasible=2, shortage=0, rmean=4.2827324867248535
-2026-03-03 14:22:27,391 [DEBUG] Resources consumed | amount=0.35, feasible=122, shortage=7, rmean=4.277645587921143
-2026-03-03 14:22:27,391 [DEBUG] Resources consumed | amount=0.75, feasible=4, shortage=0, rmean=4.277304649353027
-2026-03-03 14:22:27,391 [DEBUG] Resources consumed | amount=0.35, feasible=94, shortage=0, rmean=4.273565769195557
-2026-03-03 14:22:27,392 [DEBUG] Resources consumed | amount=0.75, feasible=14, shortage=0, rmean=4.272372722625732
-2026-03-03 14:22:27,392 [DEBUG] Resources consumed | amount=0.35, feasible=71, shortage=0, rmean=4.269547939300537
-2026-03-03 14:22:27,392 [DEBUG] Resources consumed | amount=0.75, feasible=4, shortage=0, rmean=4.269207000732422
-2026-03-03 14:22:27,393 [DEBUG] Resources consumed | amount=0.35, feasible=91, shortage=2, rmean=4.265522003173828
-2026-03-03 14:22:27,393 [DEBUG] Resources consumed | amount=0.75, feasible=9, shortage=0, rmean=4.264754772186279
-2026-03-03 14:22:27,393 [DEBUG] Resources consumed | amount=0.35, feasible=56, shortage=0, rmean=4.262527942657471
-2026-03-03 14:22:28,903 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8446
-2026-03-03 14:22:28,903 [DEBUG] Environment step end | births=33.0, starved=9.0, resources_avg=4.262527942657471, reward_mean=0.04420454427599907, energy_mean=-0.9111195206642151
-2026-03-03 14:22:28,904 [DEBUG] Step computed | wrap=True, alive=467, resources_mean=4.262527942657471
-2026-03-03 14:22:29,031 [DEBUG] Resources regenerated | regen=0.25, rmean=4.409627914428711
-2026-03-03 14:22:29,032 [DEBUG] Environment step start | wrap=True, alive=467, energy_mean=-1.0111194849014282
-2026-03-03 14:22:29,054 [DEBUG] Resources consumed | amount=0.75, feasible=3, shortage=0, rmean=4.409372329711914
-2026-03-03 14:22:29,054 [DEBUG] Resources consumed | amount=0.35, feasible=115, shortage=5, rmean=4.40462589263916
-2026-03-03 14:22:29,055 [DEBUG] Resources consumed | amount=0.75, feasible=6, shortage=0, rmean=4.404114246368408
-2026-03-03 14:22:29,055 [DEBUG] Resources consumed | amount=0.35, feasible=91, shortage=0, rmean=4.400495529174805
-2026-03-03 14:22:29,056 [DEBUG] Resources consumed | amount=0.75, feasible=11, shortage=0, rmean=4.399558067321777
-2026-03-03 14:22:29,056 [DEBUG] Resources consumed | amount=0.35, feasible=70, shortage=0, rmean=4.396773815155029
-2026-03-03 14:22:29,056 [DEBUG] Resources consumed | amount=0.75, feasible=4, shortage=0, rmean=4.396432876586914
-2026-03-03 14:22:29,057 [DEBUG] Resources consumed | amount=0.35, feasible=90, shortage=0, rmean=4.392853260040283
-2026-03-03 14:22:29,057 [DEBUG] Resources consumed | amount=0.75, feasible=5, shortage=0, rmean=4.39242696762085
-2026-03-03 14:22:29,057 [DEBUG] Resources consumed | amount=0.35, feasible=57, shortage=1, rmean=4.390127182006836
-2026-03-03 14:22:30,500 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8457
-2026-03-03 14:22:30,501 [DEBUG] Environment step end | births=29.0, starved=6.0, resources_avg=4.390127182006836, reward_mean=0.043977271765470505, energy_mean=-0.9949915409088135
-2026-03-03 14:22:30,501 [DEBUG] Step computed | wrap=True, alive=452, resources_mean=4.390127182006836
-2026-03-03 14:22:30,617 [DEBUG] Resources regenerated | regen=0.25, rmean=4.515743732452393
-2026-03-03 14:22:30,618 [DEBUG] Environment step start | wrap=True, alive=452, energy_mean=-1.0949915647506714
-2026-03-03 14:22:30,646 [DEBUG] Resources consumed | amount=0.75, feasible=2, shortage=0, rmean=4.515573024749756
-2026-03-03 14:22:30,647 [DEBUG] Resources consumed | amount=0.35, feasible=111, shortage=5, rmean=4.510986804962158
-2026-03-03 14:22:30,647 [DEBUG] Resources consumed | amount=0.75, feasible=3, shortage=0, rmean=4.510731220245361
-2026-03-03 14:22:30,647 [DEBUG] Resources consumed | amount=0.35, feasible=92, shortage=0, rmean=4.5070719718933105
-2026-03-03 14:22:30,648 [DEBUG] Resources consumed | amount=0.75, feasible=9, shortage=0, rmean=4.50630521774292
-2026-03-03 14:22:30,648 [DEBUG] Resources consumed | amount=0.35, feasible=69, shortage=1, rmean=4.503525733947754
-2026-03-03 14:22:30,648 [DEBUG] Resources consumed | amount=0.75, feasible=3, shortage=0, rmean=4.503270149230957
-2026-03-03 14:22:30,648 [DEBUG] Resources consumed | amount=0.35, feasible=88, shortage=2, rmean=4.499696254730225
-2026-03-03 14:22:30,648 [DEBUG] Resources consumed | amount=0.75, feasible=6, shortage=0, rmean=4.499185085296631
-2026-03-03 14:22:30,649 [DEBUG] Resources consumed | amount=0.35, feasible=53, shortage=0, rmean=4.497077465057373
-2026-03-03 14:22:32,212 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8466
-2026-03-03 14:22:32,334 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=608
-2026-03-03 14:22:32,443 [DEBUG] PPO update | species=3 | device=cuda | batch_obs=558
-2026-03-03 14:22:32,443 [DEBUG] Environment step end | births=23.0, starved=8.0, resources_avg=4.497077465057373, reward_mean=0.042386364191770554, energy_mean=-1.0792615413665771
-2026-03-03 14:22:32,444 [DEBUG] Step computed | wrap=True, alive=436, resources_mean=4.497077465057373
-2026-03-03 14:22:32,554 [DEBUG] Resources regenerated | regen=0.25, rmean=4.599992752075195
-2026-03-03 14:22:32,555 [DEBUG] Environment step start | wrap=True, alive=436, energy_mean=-1.179261565208435
-2026-03-03 14:22:32,579 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.599992752075195
-2026-03-03 14:22:32,580 [DEBUG] Resources consumed | amount=0.35, feasible=104, shortage=9, rmean=4.595551490783691
-2026-03-03 14:22:32,580 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.595551490783691
-2026-03-03 14:22:32,581 [DEBUG] Resources consumed | amount=0.35, feasible=92, shortage=2, rmean=4.591829776763916
-2026-03-03 14:22:32,581 [DEBUG] Resources consumed | amount=0.75, feasible=5, shortage=0, rmean=4.591403484344482
-2026-03-03 14:22:32,581 [DEBUG] Resources consumed | amount=0.35, feasible=73, shortage=0, rmean=4.588499546051025
-2026-03-03 14:22:32,582 [DEBUG] Resources consumed | amount=0.75, feasible=5, shortage=0, rmean=4.58807373046875
-2026-03-03 14:22:32,582 [DEBUG] Resources consumed | amount=0.35, feasible=83, shortage=2, rmean=4.584702491760254
-2026-03-03 14:22:32,582 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.5846171379089355
-2026-03-03 14:22:32,583 [DEBUG] Resources consumed | amount=0.35, feasible=54, shortage=2, rmean=4.582399368286133
-2026-03-03 14:22:33,807 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8477
-2026-03-03 14:22:33,907 [DEBUG] PPO update | species=4 | device=cuda | batch_obs=584
-2026-03-03 14:22:33,908 [DEBUG] Environment step end | births=11.0, starved=15.0, resources_avg=4.582399368286133, reward_mean=0.04011363536119461, energy_mean=-1.1647061109542847
-2026-03-03 14:22:33,908 [DEBUG] Step computed | wrap=True, alive=417, resources_mean=4.582399368286133
-2026-03-03 14:22:34,021 [DEBUG] Resources regenerated | regen=0.25, rmean=4.66295862197876
-2026-03-03 14:22:34,022 [DEBUG] Environment step start | wrap=True, alive=417, energy_mean=-1.2647062540054321
-2026-03-03 14:22:34,040 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.66295862197876
-2026-03-03 14:22:34,041 [DEBUG] Resources consumed | amount=0.35, feasible=95, shortage=8, rmean=4.658909320831299
-2026-03-03 14:22:34,042 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.658909320831299
-2026-03-03 14:22:34,042 [DEBUG] Resources consumed | amount=0.35, feasible=92, shortage=0, rmean=4.655250549316406
-2026-03-03 14:22:34,043 [DEBUG] Resources consumed | amount=0.75, feasible=3, shortage=0, rmean=4.654994487762451
-2026-03-03 14:22:34,043 [DEBUG] Resources consumed | amount=0.35, feasible=73, shortage=1, rmean=4.652060031890869
-2026-03-03 14:22:34,043 [DEBUG] Resources consumed | amount=0.75, feasible=2, shortage=0, rmean=4.651889801025391
-2026-03-03 14:22:34,044 [DEBUG] Resources consumed | amount=0.35, feasible=85, shortage=1, rmean=4.648470401763916
-2026-03-03 14:22:34,044 [DEBUG] Resources consumed | amount=0.75, feasible=3, shortage=0, rmean=4.648214817047119
-2026-03-03 14:22:34,045 [DEBUG] Resources consumed | amount=0.35, feasible=48, shortage=0, rmean=4.646305561065674
-2026-03-03 14:22:35,677 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8487
-2026-03-03 14:22:35,678 [DEBUG] Environment step end | births=8.0, starved=10.0, resources_avg=4.646305561065674, reward_mean=0.039886362850666046, energy_mean=-1.252013087272644
-2026-03-03 14:22:35,678 [DEBUG] Step computed | wrap=True, alive=401, resources_mean=4.646305561065674
-2026-03-03 14:22:35,805 [DEBUG] Resources regenerated | regen=0.25, rmean=4.705023765563965
-2026-03-03 14:22:35,806 [DEBUG] Environment step start | wrap=True, alive=401, energy_mean=-1.3520129919052124
-2026-03-03 14:22:35,837 [DEBUG] Resources consumed | amount=0.75, feasible=6, shortage=0, rmean=4.704512596130371
-2026-03-03 14:22:35,838 [DEBUG] Resources consumed | amount=0.35, feasible=80, shortage=6, rmean=4.701126575469971
-2026-03-03 14:22:35,839 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.701041221618652
-2026-03-03 14:22:35,839 [DEBUG] Resources consumed | amount=0.35, feasible=89, shortage=2, rmean=4.697434425354004
-2026-03-03 14:22:35,840 [DEBUG] Resources consumed | amount=0.75, feasible=4, shortage=0, rmean=4.697093486785889
-2026-03-03 14:22:35,840 [DEBUG] Resources consumed | amount=0.35, feasible=71, shortage=0, rmean=4.694269180297852
-2026-03-03 14:22:35,841 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.694184303283691
-2026-03-03 14:22:35,841 [DEBUG] Resources consumed | amount=0.35, feasible=83, shortage=2, rmean=4.690824031829834
-2026-03-03 14:22:35,841 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.690738677978516
-2026-03-03 14:22:35,842 [DEBUG] Resources consumed | amount=0.35, feasible=47, shortage=1, rmean=4.688840389251709
-2026-03-03 14:22:37,449 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8494
-2026-03-03 14:22:37,550 [DEBUG] PPO update | species=5 | device=cuda | batch_obs=520
-2026-03-03 14:22:37,551 [DEBUG] Environment step end | births=13.0, starved=11.0, resources_avg=4.688840389251709, reward_mean=0.036704543977975845, energy_mean=-1.3393652439117432
-2026-03-03 14:22:37,553 [DEBUG] Step computed | wrap=True, alive=383, resources_mean=4.688840389251709
-2026-03-03 14:22:37,656 [DEBUG] Resources regenerated | regen=0.25, rmean=4.732959270477295
-2026-03-03 14:22:37,657 [DEBUG] Environment step start | wrap=True, alive=383, energy_mean=-1.4393653869628906
-2026-03-03 14:22:37,678 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.732874393463135
-2026-03-03 14:22:37,678 [DEBUG] Resources consumed | amount=0.35, feasible=76, shortage=9, rmean=4.729560375213623
-2026-03-03 14:22:37,679 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.729475498199463
-2026-03-03 14:22:37,679 [DEBUG] Resources consumed | amount=0.35, feasible=87, shortage=2, rmean=4.725942134857178
-2026-03-03 14:22:37,679 [DEBUG] Resources consumed | amount=0.75, feasible=5, shortage=0, rmean=4.725515842437744
-2026-03-03 14:22:37,680 [DEBUG] Resources consumed | amount=0.35, feasible=69, shortage=0, rmean=4.722771167755127
-2026-03-03 14:22:37,680 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.722685813903809
-2026-03-03 14:22:37,680 [DEBUG] Resources consumed | amount=0.35, feasible=79, shortage=4, rmean=4.719409465789795
-2026-03-03 14:22:37,680 [DEBUG] Resources consumed | amount=0.75, feasible=2, shortage=0, rmean=4.719239234924316
-2026-03-03 14:22:37,680 [DEBUG] Resources consumed | amount=0.35, feasible=44, shortage=2, rmean=4.7174201011657715
-2026-03-03 14:22:39,126 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8503
-2026-03-03 14:22:39,126 [DEBUG] Environment step end | births=10.0, starved=17.0, resources_avg=4.7174201011657715, reward_mean=0.03431818261742592, energy_mean=-1.4254505634307861
-2026-03-03 14:22:39,127 [DEBUG] Step computed | wrap=True, alive=365, resources_mean=4.7174201011657715
-2026-03-03 14:22:39,142 [DEBUG] View resources toggled | checked=True
-2026-03-03 14:22:39,143 [DEBUG] Resource view toggle requested | enabled=True
-2026-03-03 14:22:39,144 [DEBUG] Resource overlay toggled | enabled=False, rmax=5.0
-2026-03-03 14:22:39,148 [DEBUG] ResourceWindow refresh | shape=(80, 110), rmin=0.0, rmax=5.0, rmean=4.7174201011657715, target_w=640, target_h=480
-2026-03-03 14:22:39,149 [DEBUG] ResourceWindow initialized
-2026-03-03 14:22:39,149 [DEBUG] Resource window created
-2026-03-03 14:22:39,150 [DEBUG] ResourceWindow showEvent
-2026-03-03 14:22:39,151 [DEBUG] Resource window shown
-2026-03-03 14:22:39,232 [DEBUG] ResourceWindow refresh | shape=(80, 110), rmin=0.0, rmax=5.0, rmean=4.7174201011657715, target_w=1314, target_h=705
-2026-03-03 14:22:39,282 [DEBUG] Resources regenerated | regen=0.25, rmean=4.7555832862854
-2026-03-03 14:22:39,283 [DEBUG] Environment step start | wrap=True, alive=365, energy_mean=-1.5254504680633545
-2026-03-03 14:22:39,309 [DEBUG] Resources consumed | amount=0.75, feasible=2, shortage=0, rmean=4.755413055419922
-2026-03-03 14:22:39,310 [DEBUG] Resources consumed | amount=0.35, feasible=71, shortage=4, rmean=4.752445220947266
-2026-03-03 14:22:39,310 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.752445220947266
-2026-03-03 14:22:39,311 [DEBUG] Resources consumed | amount=0.35, feasible=85, shortage=3, rmean=4.748964309692383
-2026-03-03 14:22:39,311 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.7488789558410645
-2026-03-03 14:22:39,311 [DEBUG] Resources consumed | amount=0.35, feasible=72, shortage=1, rmean=4.745977401733398
-2026-03-03 14:22:39,312 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.74589204788208
-2026-03-03 14:22:39,312 [DEBUG] Resources consumed | amount=0.35, feasible=79, shortage=0, rmean=4.74275016784668
-2026-03-03 14:22:39,312 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.7426652908325195
-2026-03-03 14:22:39,312 [DEBUG] Resources consumed | amount=0.35, feasible=45, shortage=0, rmean=4.740875244140625
-2026-03-03 14:22:40,951 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8512
-2026-03-03 14:22:40,952 [DEBUG] Environment step end | births=5.0, starved=8.0, resources_avg=4.740875244140625, reward_mean=0.037272728979587555, energy_mean=-1.5125129222869873
-2026-03-03 14:22:40,953 [DEBUG] Step computed | wrap=True, alive=357, resources_mean=4.740875244140625
-2026-03-03 14:22:41,028 [DEBUG] ResourceWindow refresh | shape=(80, 110), rmin=0.0, rmax=5.0, rmean=4.740875244140625, target_w=1314, target_h=705
-2026-03-03 14:22:41,071 [DEBUG] Resources regenerated | regen=0.25, rmean=4.773133754730225
-2026-03-03 14:22:41,072 [DEBUG] Environment step start | wrap=True, alive=357, energy_mean=-1.6125129461288452
-2026-03-03 14:22:41,102 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.7730488777160645
-2026-03-03 14:22:41,102 [DEBUG] Resources consumed | amount=0.35, feasible=66, shortage=6, rmean=4.770232677459717
-2026-03-03 14:22:41,103 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.770232677459717
-2026-03-03 14:22:41,103 [DEBUG] Resources consumed | amount=0.35, feasible=84, shortage=1, rmean=4.766858100891113
-2026-03-03 14:22:41,103 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.766858100891113
-2026-03-03 14:22:41,104 [DEBUG] Resources consumed | amount=0.35, feasible=73, shortage=0, rmean=4.7639546394348145
-2026-03-03 14:22:41,104 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.7639546394348145
-2026-03-03 14:22:41,104 [DEBUG] Resources consumed | amount=0.35, feasible=79, shortage=1, rmean=4.760776519775391
-2026-03-03 14:22:41,105 [DEBUG] Resources consumed | amount=0.75, feasible=4, shortage=0, rmean=4.760435581207275
-2026-03-03 14:22:41,105 [DEBUG] Resources consumed | amount=0.35, feasible=41, shortage=0, rmean=4.758804798126221
-2026-03-03 14:22:42,493 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8516
-2026-03-03 14:22:42,588 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=542
-2026-03-03 14:22:42,589 [DEBUG] Environment step end | births=5.0, starved=8.0, resources_avg=4.758804798126221, reward_mean=0.03602272644639015, energy_mean=-1.5998226404190063
-2026-03-03 14:22:42,590 [DEBUG] Step computed | wrap=True, alive=348, resources_mean=4.758804798126221
-2026-03-03 14:22:42,662 [DEBUG] ResourceWindow refresh | shape=(80, 110), rmin=0.0, rmax=5.0, rmean=4.758804798126221, target_w=1314, target_h=705
-2026-03-03 14:22:42,708 [DEBUG] Resources regenerated | regen=0.25, rmean=4.786942005157471
-2026-03-03 14:22:42,708 [DEBUG] Environment step start | wrap=True, alive=348, energy_mean=-1.6998224258422852
-2026-03-03 14:22:42,729 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.786942005157471
-2026-03-03 14:22:42,730 [DEBUG] Resources consumed | amount=0.35, feasible=57, shortage=10, rmean=4.784331321716309
-2026-03-03 14:22:42,730 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.784331321716309
-2026-03-03 14:22:42,731 [DEBUG] Resources consumed | amount=0.35, feasible=82, shortage=2, rmean=4.781004905700684
-2026-03-03 14:22:42,731 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.780919551849365
-2026-03-03 14:22:42,731 [DEBUG] Resources consumed | amount=0.35, feasible=72, shortage=0, rmean=4.7780561447143555
-2026-03-03 14:22:42,732 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.7780561447143555
-2026-03-03 14:22:42,732 [DEBUG] Resources consumed | amount=0.35, feasible=77, shortage=2, rmean=4.77492094039917
-2026-03-03 14:22:42,733 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.774835586547852
-2026-03-03 14:22:42,733 [DEBUG] Resources consumed | amount=0.35, feasible=44, shortage=0, rmean=4.773086071014404
-2026-03-03 14:22:44,909 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8519
-2026-03-03 14:22:45,048 [DEBUG] PPO update | species=3 | device=cuda | batch_obs=527
-2026-03-03 14:22:45,049 [DEBUG] Environment step end | births=2.0, starved=14.0, resources_avg=4.773086071014404, reward_mean=0.03295454382896423, energy_mean=-1.687924861907959
-2026-03-03 14:22:45,050 [DEBUG] Step computed | wrap=True, alive=334, resources_mean=4.773086071014404
-2026-03-03 14:22:45,126 [DEBUG] ResourceWindow refresh | shape=(80, 110), rmin=0.0, rmax=5.0, rmean=4.773086071014404, target_w=1314, target_h=705
-2026-03-03 14:22:45,223 [DEBUG] Resources regenerated | regen=0.25, rmean=4.798226356506348
-2026-03-03 14:22:45,223 [DEBUG] Environment step start | wrap=True, alive=334, energy_mean=-1.7879247665405273
-2026-03-03 14:22:45,248 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.798226356506348
-2026-03-03 14:22:45,248 [DEBUG] Resources consumed | amount=0.35, feasible=54, shortage=2, rmean=4.796003341674805
-2026-03-03 14:22:45,248 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.796003341674805
-2026-03-03 14:22:45,249 [DEBUG] Resources consumed | amount=0.35, feasible=77, shortage=5, rmean=4.792759895324707
-2026-03-03 14:22:45,249 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.792759895324707
-2026-03-03 14:22:45,249 [DEBUG] Resources consumed | amount=0.35, feasible=70, shortage=3, rmean=4.789867877960205
-2026-03-03 14:22:45,250 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.789782524108887
-2026-03-03 14:22:45,250 [DEBUG] Resources consumed | amount=0.35, feasible=73, shortage=3, rmean=4.786776065826416
-2026-03-03 14:22:45,250 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.786690711975098
-2026-03-03 14:22:45,251 [DEBUG] Resources consumed | amount=0.35, feasible=44, shortage=0, rmean=4.784940719604492
-2026-03-03 14:22:46,855 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8523
-2026-03-03 14:22:46,955 [DEBUG] PPO update | species=4 | device=cuda | batch_obs=575
-2026-03-03 14:22:46,955 [DEBUG] Environment step end | births=2.0, starved=13.0, resources_avg=4.784940719604492, reward_mean=0.031477272510528564, energy_mean=-1.7770214080810547
-2026-03-03 14:22:46,956 [DEBUG] Step computed | wrap=True, alive=320, resources_mean=4.784940719604492
-2026-03-03 14:22:47,032 [DEBUG] ResourceWindow refresh | shape=(80, 110), rmin=0.0, rmax=5.0, rmean=4.784940719604492, target_w=1314, target_h=705
-2026-03-03 14:22:47,074 [DEBUG] Resources regenerated | regen=0.25, rmean=4.807672023773193
-2026-03-03 14:22:47,075 [DEBUG] Environment step start | wrap=True, alive=320, energy_mean=-1.877021074295044
-2026-03-03 14:22:47,100 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.807672023773193
-2026-03-03 14:22:47,100 [DEBUG] Resources consumed | amount=0.35, feasible=50, shortage=4, rmean=4.805545806884766
-2026-03-03 14:22:47,101 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.805545806884766
-2026-03-03 14:22:47,101 [DEBUG] Resources consumed | amount=0.35, feasible=75, shortage=2, rmean=4.802499771118164
-2026-03-03 14:22:47,101 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.802499771118164
-2026-03-03 14:22:47,102 [DEBUG] Resources consumed | amount=0.35, feasible=69, shortage=1, rmean=4.799716949462891
-2026-03-03 14:22:47,102 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.799716949462891
-2026-03-03 14:22:47,102 [DEBUG] Resources consumed | amount=0.35, feasible=71, shortage=3, rmean=4.796781063079834
-2026-03-03 14:22:47,102 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.796695709228516
-2026-03-03 14:22:47,103 [DEBUG] Resources consumed | amount=0.35, feasible=42, shortage=2, rmean=4.79495906829834
-2026-03-03 14:22:48,621 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8534
-2026-03-03 14:22:48,621 [DEBUG] Environment step end | births=1.0, starved=12.0, resources_avg=4.79495906829834, reward_mean=0.03079545497894287, energy_mean=-1.8662997484207153
-2026-03-03 14:22:48,622 [DEBUG] Step computed | wrap=True, alive=308, resources_mean=4.79495906829834
-2026-03-03 14:22:48,702 [DEBUG] ResourceWindow refresh | shape=(80, 110), rmin=0.0, rmax=5.0, rmean=4.79495906829834, target_w=1314, target_h=705
-2026-03-03 14:22:48,751 [DEBUG] Resources regenerated | regen=0.25, rmean=4.816063404083252
-2026-03-03 14:22:48,752 [DEBUG] Environment step start | wrap=True, alive=309, energy_mean=-1.9662997722625732
-2026-03-03 14:22:48,775 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.816063404083252
-2026-03-03 14:22:48,776 [DEBUG] Resources consumed | amount=0.35, feasible=45, shortage=6, rmean=4.814077854156494
-2026-03-03 14:22:48,776 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.814077854156494
-2026-03-03 14:22:48,777 [DEBUG] Resources consumed | amount=0.35, feasible=70, shortage=5, rmean=4.811122894287109
-2026-03-03 14:22:48,777 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.811122894287109
-2026-03-03 14:22:48,778 [DEBUG] Resources consumed | amount=0.35, feasible=69, shortage=0, rmean=4.80837869644165
-2026-03-03 14:22:48,778 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.80837869644165
-2026-03-03 14:22:48,779 [DEBUG] Resources consumed | amount=0.35, feasible=68, shortage=3, rmean=4.805577278137207
-2026-03-03 14:22:48,779 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.805491924285889
-2026-03-03 14:22:48,780 [DEBUG] Resources consumed | amount=0.35, feasible=42, shortage=0, rmean=4.803821563720703
-2026-03-03 14:22:50,398 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8542
-2026-03-03 14:22:50,399 [DEBUG] Environment step end | births=1.0, starved=14.0, resources_avg=4.803821563720703, reward_mean=0.028295453637838364, energy_mean=-1.9557029008865356
-2026-03-03 14:22:50,400 [DEBUG] Step computed | wrap=True, alive=294, resources_mean=4.803821563720703
-2026-03-03 14:22:50,417 [DEBUG] View resources toggled | checked=False
-2026-03-03 14:22:50,418 [DEBUG] Resource view toggle requested | enabled=False
-2026-03-03 14:22:50,418 [DEBUG] Resource overlay toggled | enabled=False, rmax=5.0
-2026-03-03 14:22:50,419 [DEBUG] ResourceWindow closeEvent
-2026-03-03 14:22:50,419 [DEBUG] Resource window closed
-2026-03-03 14:22:50,530 [DEBUG] Resources regenerated | regen=0.25, rmean=4.823550701141357
-2026-03-03 14:22:50,530 [DEBUG] Environment step start | wrap=True, alive=294, energy_mean=-2.0557029247283936
-2026-03-03 14:22:50,557 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.823465347290039
-2026-03-03 14:22:50,557 [DEBUG] Resources consumed | amount=0.35, feasible=32, shortage=10, rmean=4.821832180023193
-2026-03-03 14:22:50,557 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.821832180023193
-2026-03-03 14:22:50,558 [DEBUG] Resources consumed | amount=0.35, feasible=66, shortage=4, rmean=4.819057464599609
-2026-03-03 14:22:50,558 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.819057464599609
-2026-03-03 14:22:50,558 [DEBUG] Resources consumed | amount=0.35, feasible=69, shortage=0, rmean=4.81631326675415
-2026-03-03 14:22:50,558 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.81631326675415
-2026-03-03 14:22:50,558 [DEBUG] Resources consumed | amount=0.35, feasible=66, shortage=2, rmean=4.813614368438721
-2026-03-03 14:22:50,559 [DEBUG] Resources consumed | amount=0.75, feasible=2, shortage=0, rmean=4.813443660736084
-2026-03-03 14:22:50,559 [DEBUG] Resources consumed | amount=0.35, feasible=39, shortage=1, rmean=4.811863422393799
-2026-03-03 14:22:52,288 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8550
-2026-03-03 14:22:52,288 [DEBUG] Environment step end | births=3.0, starved=17.0, resources_avg=4.811863422393799, reward_mean=0.024659091606736183, energy_mean=-2.046708822250366
-2026-03-03 14:22:52,289 [DEBUG] Step computed | wrap=True, alive=275, resources_mean=4.811863422393799
+2026-03-03 16:17:28,372 [DEBUG] App start
+2026-03-03 16:17:28,382 [DEBUG] Resources reset | baseline=1.0
+2026-03-03 16:17:28,382 [DEBUG] ResourceMapManager.create | rows=80, cols=110
+2026-03-03 16:17:28,383 [DEBUG] EnvironmentEngine initialized | rows=80, cols=110
+2026-03-03 16:17:28,391 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.5000457763671875, rmax=2.9998068809509277, rmean=1.755179762840271
+2026-03-03 16:17:28,391 [DEBUG] Resource map randomized | rmin=0.5000457763671875, rmax=2.9998068809509277, rmean=1.755179762840271
+2026-03-03 16:17:28,392 [DEBUG] Resources randomized | rmin=0.5000457763671875, rmax=2.9998068809509277, rmean=1.755179762840271
+2026-03-03 16:17:28,393 [DEBUG] LifeWidget initialized | rows=80, cols=110
+2026-03-03 16:17:30,784 [DEBUG] Policy manager toggled | enabled=False
+2026-03-03 16:17:44,056 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.500261127948761, rmax=2.999483585357666, rmean=1.7600781917572021
+2026-03-03 16:17:44,057 [DEBUG] Resource map randomized | rmin=0.500261127948761, rmax=2.999483585357666, rmean=1.7600781917572021
+2026-03-03 16:17:44,058 [DEBUG] Resources randomized | rmin=0.500261127948761, rmax=2.999483585357666, rmean=1.7600781917572021
+2026-03-03 16:17:48,099 [DEBUG] Resources reset | baseline=1.0
+2026-03-03 16:17:48,100 [DEBUG] Resource map reset
+2026-03-03 16:17:48,101 [DEBUG] Environment reset
+2026-03-03 16:17:48,102 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.5004057884216309, rmax=2.999887228012085, rmean=1.7515161037445068
+2026-03-03 16:17:48,103 [DEBUG] Resource map randomized | rmin=0.5004057884216309, rmax=2.999887228012085, rmean=1.7515161037445068
+2026-03-03 16:17:48,104 [DEBUG] Resources randomized | rmin=0.5004057884216309, rmax=2.999887228012085, rmean=1.7515161037445068
+2026-03-03 16:17:48,104 [DEBUG] Board randomized | density=0.2, alive=1790
+2026-03-03 16:17:50,934 [DEBUG] Policy manager toggled | enabled=True
+2026-03-03 16:17:50,935 [DEBUG] Learning checkbox toggled | enabled=True
+2026-03-03 16:17:57,198 [DEBUG] Resources regenerated | regen=0.25, rmean=2.001516103744507
+2026-03-03 16:17:57,201 [DEBUG] Environment step start | wrap=True, alive=1790, energy_mean=-0.10000000894069672
+2026-03-03 16:17:57,218 [DEBUG] Policy step engaged | obs_count=8800
+2026-03-03 16:17:57,244 [DEBUG] Policy device | device=cuda | cuda_available=True | model_device=cuda:0
+2026-03-03 16:17:57,733 [DEBUG] Resources consumed | amount=0.75, feasible=367, shortage=0, rmean=1.9702377319335938
+2026-03-03 16:17:57,733 [DEBUG] Resources consumed | amount=0.35, feasible=331, shortage=0, rmean=1.9570729732513428
+2026-03-03 16:17:57,734 [DEBUG] Resources consumed | amount=0.75, feasible=409, shortage=0, rmean=1.9222149848937988
+2026-03-03 16:17:57,734 [DEBUG] Resources consumed | amount=0.35, feasible=323, shortage=0, rmean=1.9093683958053589
+2026-03-03 16:17:57,735 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=1.9093683958053589
+2026-03-03 16:17:57,735 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=1.9093683958053589
+2026-03-03 16:17:57,735 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=1.9093683958053589
+2026-03-03 16:17:57,735 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=1.9093683958053589
+2026-03-03 16:17:57,736 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=1.9093683958053589
+2026-03-03 16:17:57,736 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=1.9093683958053589
+2026-03-03 16:17:57,770 [DEBUG] Buffer fill | species=1 | size=7901 | ready=True
+2026-03-03 16:17:59,744 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=7901
+2026-03-03 16:17:59,744 [DEBUG] Buffer fill | species=2 | size=899 | ready=True
+2026-03-03 16:17:59,910 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=899
+2026-03-03 16:17:59,911 [DEBUG] Buffer fill | species=3 | size=0 | ready=False
+2026-03-03 16:17:59,911 [DEBUG] Buffer fill | species=4 | size=0 | ready=False
+2026-03-03 16:17:59,912 [DEBUG] Buffer fill | species=5 | size=0 | ready=False
+2026-03-03 16:17:59,912 [DEBUG] Environment step end | births=776.0, starved=0.0, resources_avg=1.9093683958053589, reward_mean=-0.007499999832361937, energy_mean=-0.035659097135066986
+2026-03-03 16:17:59,913 [DEBUG] Step computed | wrap=True, alive=1430, resources_mean=1.9093683958053589
+2026-03-03 16:17:59,962 [DEBUG] Resources regenerated | regen=0.25, rmean=2.1593685150146484
+2026-03-03 16:17:59,962 [DEBUG] Environment step start | wrap=True, alive=1430, energy_mean=-0.1356590986251831
+2026-03-03 16:17:59,992 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.1593685150146484
+2026-03-03 16:17:59,992 [DEBUG] Resources consumed | amount=0.35, feasible=657, shortage=23, rmean=2.1324539184570312
+2026-03-03 16:17:59,993 [DEBUG] Resources consumed | amount=0.75, feasible=352, shortage=0, rmean=2.1024539470672607
+2026-03-03 16:17:59,993 [DEBUG] Resources consumed | amount=0.35, feasible=270, shortage=8, rmean=2.091447353363037
+2026-03-03 16:17:59,994 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.091447353363037
+2026-03-03 16:17:59,994 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.091447353363037
+2026-03-03 16:17:59,994 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.091447353363037
+2026-03-03 16:17:59,995 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.091447353363037
+2026-03-03 16:17:59,995 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.091447353363037
+2026-03-03 16:17:59,995 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.091447353363037
+2026-03-03 16:18:02,023 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8068
+2026-03-03 16:18:02,243 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=732
+2026-03-03 16:18:02,244 [DEBUG] Environment step end | births=352.0, starved=31.0, resources_avg=2.091447353363037, reward_mean=0.06750000268220901, energy_mean=-0.08489489555358887
+2026-03-03 16:18:02,245 [DEBUG] Step computed | wrap=True, alive=1279, resources_mean=2.091447353363037
+2026-03-03 16:18:02,264 [DEBUG] Resources randomized | low=0.5, high=3.0, rmin=0.5012089610099792, rmax=2.9999358654022217, rmean=1.7337678670883179
+2026-03-03 16:18:02,265 [DEBUG] Resource map randomized | rmin=0.5012089610099792, rmax=2.9999358654022217, rmean=1.7337678670883179
+2026-03-03 16:18:02,265 [DEBUG] Resources randomized | rmin=0.5012089610099792, rmax=2.9999358654022217, rmean=1.7337678670883179
+2026-03-03 16:18:02,308 [DEBUG] Resources regenerated | regen=0.25, rmean=1.9837677478790283
+2026-03-03 16:18:02,310 [DEBUG] Environment step start | wrap=True, alive=1279, energy_mean=-0.1848948746919632
+2026-03-03 16:18:02,334 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=1.9837677478790283
+2026-03-03 16:18:02,335 [DEBUG] Resources consumed | amount=0.35, feasible=641, shortage=0, rmean=1.9582736492156982
+2026-03-03 16:18:02,336 [DEBUG] Resources consumed | amount=0.75, feasible=280, shortage=0, rmean=1.9344100952148438
+2026-03-03 16:18:02,337 [DEBUG] Resources consumed | amount=0.35, feasible=249, shortage=0, rmean=1.9245067834854126
+2026-03-03 16:18:02,338 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=1.9245067834854126
+2026-03-03 16:18:02,338 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=1.9245067834854126
+2026-03-03 16:18:02,338 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=1.9245067834854126
+2026-03-03 16:18:02,340 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=1.9245067834854126
+2026-03-03 16:18:02,340 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=1.9245067834854126
+2026-03-03 16:18:02,341 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=1.9245067834854126
+2026-03-03 16:18:03,780 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8178
+2026-03-03 16:18:03,900 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=622
+2026-03-03 16:18:03,901 [DEBUG] Environment step end | births=280.0, starved=0.0, resources_avg=1.9245067834854126, reward_mean=0.07636363804340363, energy_mean=-0.13982102274894714
+2026-03-03 16:18:03,902 [DEBUG] Step computed | wrap=True, alive=1170, resources_mean=1.9245067834854126
+2026-03-03 16:18:03,950 [DEBUG] Resources regenerated | regen=0.25, rmean=2.174506425857544
+2026-03-03 16:18:03,951 [DEBUG] Environment step start | wrap=True, alive=1170, energy_mean=-0.23982106149196625
+2026-03-03 16:18:03,974 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.174506425857544
+2026-03-03 16:18:03,975 [DEBUG] Resources consumed | amount=0.35, feasible=630, shortage=0, rmean=2.1494498252868652
+2026-03-03 16:18:03,976 [DEBUG] Resources consumed | amount=0.75, feasible=202, shortage=0, rmean=2.1322336196899414
+2026-03-03 16:18:03,977 [DEBUG] Resources consumed | amount=0.35, feasible=286, shortage=11, rmean=2.120481252670288
+2026-03-03 16:18:03,978 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.120481252670288
+2026-03-03 16:18:03,979 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.120481252670288
+2026-03-03 16:18:03,979 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.120481252670288
+2026-03-03 16:18:03,980 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.120481252670288
+2026-03-03 16:18:03,981 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.120481252670288
+2026-03-03 16:18:03,981 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.120481252670288
+2026-03-03 16:18:03,997 [DEBUG] Buffer fill | species=1 | size=8271 | ready=True
+2026-03-03 16:18:05,687 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8271
+2026-03-03 16:18:05,867 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=529
+2026-03-03 16:18:05,868 [DEBUG] Environment step end | births=202.0, starved=11.0, resources_avg=2.120481252670288, reward_mean=0.09102272987365723, energy_mean=-0.19592046737670898
+2026-03-03 16:18:05,869 [DEBUG] Step computed | wrap=True, alive=1118, resources_mean=2.120481252670288
+2026-03-03 16:18:05,922 [DEBUG] Resources regenerated | regen=0.25, rmean=2.370481252670288
+2026-03-03 16:18:05,923 [DEBUG] Environment step start | wrap=True, alive=1118, energy_mean=-0.2959204614162445
+2026-03-03 16:18:05,949 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.370481252670288
+2026-03-03 16:18:05,950 [DEBUG] Resources consumed | amount=0.35, feasible=626, shortage=0, rmean=2.345583438873291
+2026-03-03 16:18:05,951 [DEBUG] Resources consumed | amount=0.75, feasible=126, shortage=1, rmean=2.334779739379883
+2026-03-03 16:18:05,951 [DEBUG] Resources consumed | amount=0.35, feasible=328, shortage=3, rmean=2.321636199951172
+2026-03-03 16:18:05,952 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.321636199951172
+2026-03-03 16:18:05,953 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.321636199951172
+2026-03-03 16:18:05,953 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.321636199951172
+2026-03-03 16:18:05,954 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.321636199951172
+2026-03-03 16:18:05,954 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.321636199951172
+2026-03-03 16:18:05,955 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.321636199951172
+2026-03-03 16:18:07,495 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8312
+2026-03-03 16:18:07,496 [DEBUG] Environment step end | births=127.0, starved=4.0, resources_avg=2.321636199951172, reward_mean=0.09931818395853043, energy_mean=-0.25574150681495667
+2026-03-03 16:18:07,496 [DEBUG] Step computed | wrap=True, alive=1080, resources_mean=2.321636199951172
+2026-03-03 16:18:07,543 [DEBUG] Resources regenerated | regen=0.25, rmean=2.571636199951172
+2026-03-03 16:18:07,543 [DEBUG] Environment step start | wrap=True, alive=1080, energy_mean=-0.3557415008544922
+2026-03-03 16:18:07,571 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.571636199951172
+2026-03-03 16:18:07,572 [DEBUG] Resources consumed | amount=0.35, feasible=623, shortage=0, rmean=2.5468578338623047
+2026-03-03 16:18:07,572 [DEBUG] Resources consumed | amount=0.75, feasible=125, shortage=0, rmean=2.5362045764923096
+2026-03-03 16:18:07,572 [DEBUG] Resources consumed | amount=0.35, feasible=305, shortage=2, rmean=2.5240113735198975
+2026-03-03 16:18:07,573 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.5240113735198975
+2026-03-03 16:18:07,573 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.5240113735198975
+2026-03-03 16:18:07,573 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.5240113735198975
+2026-03-03 16:18:07,573 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.5240113735198975
+2026-03-03 16:18:07,573 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.5240113735198975
+2026-03-03 16:18:07,573 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.5240113735198975
+2026-03-03 16:18:08,911 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8346
+2026-03-03 16:18:09,083 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=942
+2026-03-03 16:18:09,084 [DEBUG] Environment step end | births=125.0, starved=2.0, resources_avg=2.5240113735198975, reward_mean=0.09909091144800186, energy_mean=-0.31522443890571594
+2026-03-03 16:18:09,084 [DEBUG] Step computed | wrap=True, alive=1053, resources_mean=2.5240113735198975
+2026-03-03 16:18:09,130 [DEBUG] Resources regenerated | regen=0.25, rmean=2.7740113735198975
+2026-03-03 16:18:09,131 [DEBUG] Environment step start | wrap=True, alive=1053, energy_mean=-0.41522443294525146
+2026-03-03 16:18:09,152 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.7740113735198975
+2026-03-03 16:18:09,152 [DEBUG] Resources consumed | amount=0.35, feasible=621, shortage=0, rmean=2.749312400817871
+2026-03-03 16:18:09,153 [DEBUG] Resources consumed | amount=0.75, feasible=58, shortage=0, rmean=2.7443692684173584
+2026-03-03 16:18:09,153 [DEBUG] Resources consumed | amount=0.35, feasible=351, shortage=8, rmean=2.7301368713378906
+2026-03-03 16:18:09,153 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.7301368713378906
+2026-03-03 16:18:09,153 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.7301368713378906
+2026-03-03 16:18:09,153 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.7301368713378906
+2026-03-03 16:18:09,154 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.7301368713378906
+2026-03-03 16:18:09,154 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.7301368713378906
+2026-03-03 16:18:09,154 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.7301368713378906
+2026-03-03 16:18:10,805 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8370
+2026-03-03 16:18:10,805 [DEBUG] Environment step end | births=58.0, starved=8.0, resources_avg=2.7301368713378906, reward_mean=0.10431817919015884, energy_mean=-0.3787273168563843
+2026-03-03 16:18:10,806 [DEBUG] Step computed | wrap=True, alive=1030, resources_mean=2.7301368713378906
+2026-03-03 16:18:10,849 [DEBUG] Resources regenerated | regen=0.25, rmean=2.9801368713378906
+2026-03-03 16:18:10,849 [DEBUG] Environment step start | wrap=True, alive=1030, energy_mean=-0.4787273705005646
+2026-03-03 16:18:10,876 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.9801368713378906
+2026-03-03 16:18:10,876 [DEBUG] Resources consumed | amount=0.35, feasible=592, shortage=28, rmean=2.9556405544281006
+2026-03-03 16:18:10,877 [DEBUG] Resources consumed | amount=0.75, feasible=50, shortage=0, rmean=2.9513790607452393
+2026-03-03 16:18:10,877 [DEBUG] Resources consumed | amount=0.35, feasible=335, shortage=15, rmean=2.937560796737671
+2026-03-03 16:18:10,878 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.937560796737671
+2026-03-03 16:18:10,878 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.937560796737671
+2026-03-03 16:18:10,879 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.937560796737671
+2026-03-03 16:18:10,879 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.937560796737671
+2026-03-03 16:18:10,880 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=2.937560796737671
+2026-03-03 16:18:10,881 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=2.937560796737671
+2026-03-03 16:18:12,915 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8391
+2026-03-03 16:18:13,094 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=839
+2026-03-03 16:18:13,094 [DEBUG] Environment step end | births=50.0, starved=43.0, resources_avg=2.937560796737671, reward_mean=0.08840908855199814, energy_mean=-0.44370177388191223
+2026-03-03 16:18:13,095 [DEBUG] Step computed | wrap=True, alive=977, resources_mean=2.937560796737671
+2026-03-03 16:18:13,138 [DEBUG] Resources regenerated | regen=0.25, rmean=3.187560796737671
+2026-03-03 16:18:13,139 [DEBUG] Environment step start | wrap=True, alive=977, energy_mean=-0.5437018275260925
+2026-03-03 16:18:13,166 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.187560796737671
+2026-03-03 16:18:13,167 [DEBUG] Resources consumed | amount=0.35, feasible=561, shortage=28, rmean=3.1642956733703613
+2026-03-03 16:18:13,167 [DEBUG] Resources consumed | amount=0.75, feasible=21, shortage=1, rmean=3.162477493286133
+2026-03-03 16:18:13,168 [DEBUG] Resources consumed | amount=0.35, feasible=351, shortage=7, rmean=3.148263454437256
+2026-03-03 16:18:13,168 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.148263454437256
+2026-03-03 16:18:13,169 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.148263454437256
+2026-03-03 16:18:13,169 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.148263454437256
+2026-03-03 16:18:13,170 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.148263454437256
+2026-03-03 16:18:13,170 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.148263454437256
+2026-03-03 16:18:13,170 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.148263454437256
+2026-03-03 16:18:15,022 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8415
+2026-03-03 16:18:15,022 [DEBUG] Environment step end | births=22.0, starved=36.0, resources_avg=3.148263454437256, reward_mean=0.08954545110464096, energy_mean=-0.5116392970085144
+2026-03-03 16:18:15,023 [DEBUG] Step computed | wrap=True, alive=933, resources_mean=3.148263454437256
+2026-03-03 16:18:15,068 [DEBUG] Resources regenerated | regen=0.25, rmean=3.3982632160186768
+2026-03-03 16:18:15,068 [DEBUG] Environment step start | wrap=True, alive=933, energy_mean=-0.6116393208503723
+2026-03-03 16:18:15,179 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.3982632160186768
+2026-03-03 16:18:15,180 [DEBUG] Resources consumed | amount=0.35, feasible=535, shortage=26, rmean=3.376079797744751
+2026-03-03 16:18:15,180 [DEBUG] Resources consumed | amount=0.75, feasible=9, shortage=0, rmean=3.3753128051757812
+2026-03-03 16:18:15,181 [DEBUG] Resources consumed | amount=0.35, feasible=352, shortage=8, rmean=3.3610379695892334
+2026-03-03 16:18:15,181 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.3610379695892334
+2026-03-03 16:18:15,182 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.3610379695892334
+2026-03-03 16:18:15,182 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.3610379695892334
+2026-03-03 16:18:15,182 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.3610379695892334
+2026-03-03 16:18:15,183 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.3610379695892334
+2026-03-03 16:18:15,183 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.3610379695892334
+2026-03-03 16:18:16,730 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8428
+2026-03-03 16:18:16,874 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=757
+2026-03-03 16:18:16,874 [DEBUG] Environment step end | births=9.0, starved=34.0, resources_avg=3.3610379695892334, reward_mean=0.08852272480726242, energy_mean=-0.5809006690979004
+2026-03-03 16:18:16,875 [DEBUG] Step computed | wrap=True, alive=896, resources_mean=3.3610379695892334
+2026-03-03 16:18:16,917 [DEBUG] Resources regenerated | regen=0.25, rmean=3.6008594036102295
+2026-03-03 16:18:16,918 [DEBUG] Environment step start | wrap=True, alive=896, energy_mean=-0.6809006929397583
+2026-03-03 16:18:16,949 [DEBUG] Resources consumed | amount=0.75, feasible=112, shortage=2, rmean=3.591257095336914
+2026-03-03 16:18:16,949 [DEBUG] Resources consumed | amount=0.35, feasible=350, shortage=15, rmean=3.576824426651001
+2026-03-03 16:18:16,949 [DEBUG] Resources consumed | amount=0.75, feasible=3, shortage=1, rmean=3.576511859893799
+2026-03-03 16:18:16,950 [DEBUG] Resources consumed | amount=0.35, feasible=343, shortage=11, rmean=3.5625
+2026-03-03 16:18:16,950 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.5625
+2026-03-03 16:18:16,951 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.5625
+2026-03-03 16:18:16,951 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.5625
+2026-03-03 16:18:16,952 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.5625
+2026-03-03 16:18:16,953 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.5625
+2026-03-03 16:18:16,953 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.5625
+2026-03-03 16:18:18,611 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8439
+2026-03-03 16:18:18,611 [DEBUG] Environment step end | births=118.0, starved=29.0, resources_avg=3.5625, reward_mean=0.055454544723033905, energy_mean=-0.6525526642799377
+2026-03-03 16:18:18,612 [DEBUG] Step computed | wrap=True, alive=808, resources_mean=3.5625
+2026-03-03 16:18:18,659 [DEBUG] Resources regenerated | regen=0.25, rmean=3.7830567359924316
+2026-03-03 16:18:18,660 [DEBUG] Environment step start | wrap=True, alive=808, energy_mean=-0.7525526285171509
+2026-03-03 16:18:18,686 [DEBUG] Resources consumed | amount=0.75, feasible=84, shortage=0, rmean=3.77589750289917
+2026-03-03 16:18:18,687 [DEBUG] Resources consumed | amount=0.35, feasible=329, shortage=13, rmean=3.762382745742798
+2026-03-03 16:18:18,688 [DEBUG] Resources consumed | amount=0.75, feasible=3, shortage=0, rmean=3.762127161026001
+2026-03-03 16:18:18,689 [DEBUG] Resources consumed | amount=0.35, feasible=329, shortage=13, rmean=3.7485995292663574
+2026-03-03 16:18:18,689 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.7485995292663574
+2026-03-03 16:18:18,690 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.7485995292663574
+2026-03-03 16:18:18,691 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.7485995292663574
+2026-03-03 16:18:18,691 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.7485995292663574
+2026-03-03 16:18:18,692 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.7485995292663574
+2026-03-03 16:18:18,692 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.7485995292663574
+2026-03-03 16:18:20,194 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8454
+2026-03-03 16:18:20,389 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=707
+2026-03-03 16:18:20,390 [DEBUG] Environment step end | births=87.0, starved=26.0, resources_avg=3.7485995292663574, reward_mean=0.057500001043081284, energy_mean=-0.725075364112854
+2026-03-03 16:18:20,390 [DEBUG] Step computed | wrap=True, alive=745, resources_mean=3.7485995292663574
+2026-03-03 16:18:20,439 [DEBUG] Resources regenerated | regen=0.25, rmean=3.9497532844543457
+2026-03-03 16:18:20,440 [DEBUG] Environment step start | wrap=True, alive=745, energy_mean=-0.8250754475593567
+2026-03-03 16:18:20,465 [DEBUG] Resources consumed | amount=0.75, feasible=32, shortage=1, rmean=3.9469690322875977
+2026-03-03 16:18:20,466 [DEBUG] Resources consumed | amount=0.35, feasible=357, shortage=7, rmean=3.9325194358825684
+2026-03-03 16:18:20,466 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=3.932434320449829
+2026-03-03 16:18:20,467 [DEBUG] Resources consumed | amount=0.35, feasible=320, shortage=10, rmean=3.919386625289917
+2026-03-03 16:18:20,468 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.919386625289917
+2026-03-03 16:18:20,468 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.919386625289917
+2026-03-03 16:18:20,469 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.919386625289917
+2026-03-03 16:18:20,469 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.919386625289917
+2026-03-03 16:18:20,470 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=3.919386625289917
+2026-03-03 16:18:20,471 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=3.919386625289917
+2026-03-03 16:18:21,849 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8468
+2026-03-03 16:18:21,850 [DEBUG] Environment step end | births=34.0, starved=18.0, resources_avg=3.919386625289917, reward_mean=0.0669318214058876, energy_mean=-0.8008368015289307
+2026-03-03 16:18:21,851 [DEBUG] Step computed | wrap=True, alive=710, resources_mean=3.919386625289917
+2026-03-03 16:18:21,897 [DEBUG] Resources regenerated | regen=0.25, rmean=4.100482940673828
+2026-03-03 16:18:21,898 [DEBUG] Environment step start | wrap=True, alive=710, energy_mean=-0.9008367657661438
+2026-03-03 16:18:21,922 [DEBUG] Resources consumed | amount=0.75, feasible=10, shortage=0, rmean=4.099630832672119
+2026-03-03 16:18:21,922 [DEBUG] Resources consumed | amount=0.35, feasible=358, shortage=16, rmean=4.084852695465088
+2026-03-03 16:18:21,923 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.0847673416137695
+2026-03-03 16:18:21,923 [DEBUG] Resources consumed | amount=0.35, feasible=312, shortage=8, rmean=4.072088241577148
+2026-03-03 16:18:21,924 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.072088241577148
+2026-03-03 16:18:21,925 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.072088241577148
+2026-03-03 16:18:21,925 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.072088241577148
+2026-03-03 16:18:21,926 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.072088241577148
+2026-03-03 16:18:21,926 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.072088241577148
+2026-03-03 16:18:21,927 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.072088241577148
+2026-03-03 16:18:23,385 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8479
+2026-03-03 16:18:23,502 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=653
+2026-03-03 16:18:23,502 [DEBUG] Environment step end | births=11.0, starved=24.0, resources_avg=4.072088241577148, reward_mean=0.06681818515062332, energy_mean=-0.8774390816688538
+2026-03-03 16:18:23,503 [DEBUG] Step computed | wrap=True, alive=681, resources_mean=4.072088241577148
+2026-03-03 16:18:23,547 [DEBUG] Resources regenerated | regen=0.25, rmean=4.232988357543945
+2026-03-03 16:18:23,548 [DEBUG] Environment step start | wrap=True, alive=681, energy_mean=-0.9774389863014221
+2026-03-03 16:18:23,572 [DEBUG] Resources consumed | amount=0.75, feasible=10, shortage=0, rmean=4.232135772705078
+2026-03-03 16:18:23,573 [DEBUG] Resources consumed | amount=0.35, feasible=350, shortage=7, rmean=4.217982292175293
+2026-03-03 16:18:23,573 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.217896938323975
+2026-03-03 16:18:23,573 [DEBUG] Resources consumed | amount=0.35, feasible=305, shortage=7, rmean=4.205545902252197
+2026-03-03 16:18:23,573 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.205545902252197
+2026-03-03 16:18:23,574 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.205545902252197
+2026-03-03 16:18:23,574 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.205545902252197
+2026-03-03 16:18:23,574 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.205545902252197
+2026-03-03 16:18:23,574 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.205545902252197
+2026-03-03 16:18:23,574 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.205545902252197
+2026-03-03 16:18:25,261 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8487
+2026-03-03 16:18:25,261 [DEBUG] Environment step end | births=11.0, starved=14.0, resources_avg=4.205545902252197, reward_mean=0.06943181902170181, energy_mean=-0.9531265497207642
+2026-03-03 16:18:25,262 [DEBUG] Step computed | wrap=True, alive=666, resources_mean=4.205545902252197
+2026-03-03 16:18:25,307 [DEBUG] Resources regenerated | regen=0.25, rmean=4.3459248542785645
+2026-03-03 16:18:25,307 [DEBUG] Environment step start | wrap=True, alive=666, energy_mean=-1.053126573562622
+2026-03-03 16:18:25,338 [DEBUG] Resources consumed | amount=0.75, feasible=5, shortage=0, rmean=4.345499038696289
+2026-03-03 16:18:25,339 [DEBUG] Resources consumed | amount=0.35, feasible=343, shortage=8, rmean=4.3315911293029785
+2026-03-03 16:18:25,340 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.33150577545166
+2026-03-03 16:18:25,341 [DEBUG] Resources consumed | amount=0.35, feasible=294, shortage=11, rmean=4.319420337677002
+2026-03-03 16:18:25,342 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.319420337677002
+2026-03-03 16:18:25,342 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.319420337677002
+2026-03-03 16:18:25,343 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.319420337677002
+2026-03-03 16:18:25,344 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.319420337677002
+2026-03-03 16:18:25,344 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.319420337677002
+2026-03-03 16:18:25,345 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.319420337677002
+2026-03-03 16:18:27,874 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8494
+2026-03-03 16:18:28,062 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=619
+2026-03-03 16:18:28,063 [DEBUG] Environment step end | births=6.0, starved=19.0, resources_avg=4.319420337677002, reward_mean=0.06499999761581421, energy_mean=-1.0316606760025024
+2026-03-03 16:18:28,064 [DEBUG] Step computed | wrap=True, alive=643, resources_mean=4.319420337677002
+2026-03-03 16:18:28,124 [DEBUG] Resources regenerated | regen=0.25, rmean=4.4392409324646
+2026-03-03 16:18:28,125 [DEBUG] Environment step start | wrap=True, alive=643, energy_mean=-1.1316606998443604
+2026-03-03 16:18:28,151 [DEBUG] Resources consumed | amount=0.75, feasible=5, shortage=0, rmean=4.438814640045166
+2026-03-03 16:18:28,152 [DEBUG] Resources consumed | amount=0.35, feasible=335, shortage=6, rmean=4.425283432006836
+2026-03-03 16:18:28,153 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.425283432006836
+2026-03-03 16:18:28,153 [DEBUG] Resources consumed | amount=0.35, feasible=286, shortage=9, rmean=4.413626670837402
+2026-03-03 16:18:28,154 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.413626670837402
+2026-03-03 16:18:28,155 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.413626670837402
+2026-03-03 16:18:28,155 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.413626670837402
+2026-03-03 16:18:28,155 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.413626670837402
+2026-03-03 16:18:28,156 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.413626670837402
+2026-03-03 16:18:28,156 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.413626670837402
+2026-03-03 16:18:29,833 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8505
+2026-03-03 16:18:29,833 [DEBUG] Environment step end | births=5.0, starved=15.0, resources_avg=4.413626670837402, reward_mean=0.06499999761581421, energy_mean=-1.1100698709487915
+2026-03-03 16:18:29,834 [DEBUG] Step computed | wrap=True, alive=626, resources_mean=4.413626670837402
+2026-03-03 16:18:29,880 [DEBUG] Resources regenerated | regen=0.25, rmean=4.51117467880249
+2026-03-03 16:18:29,881 [DEBUG] Environment step start | wrap=True, alive=626, energy_mean=-1.2100697755813599
+2026-03-03 16:18:29,905 [DEBUG] Resources consumed | amount=0.75, feasible=2, shortage=0, rmean=4.5110039710998535
+2026-03-03 16:18:29,906 [DEBUG] Resources consumed | amount=0.35, feasible=328, shortage=9, rmean=4.497655391693115
+2026-03-03 16:18:29,906 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.497655391693115
+2026-03-03 16:18:29,907 [DEBUG] Resources consumed | amount=0.35, feasible=271, shortage=15, rmean=4.4863481521606445
+2026-03-03 16:18:29,907 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.4863481521606445
+2026-03-03 16:18:29,907 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.4863481521606445
+2026-03-03 16:18:29,908 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.4863481521606445
+2026-03-03 16:18:29,908 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.4863481521606445
+2026-03-03 16:18:29,908 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.4863481521606445
+2026-03-03 16:18:29,909 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.4863481521606445
+2026-03-03 16:18:31,361 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8514
+2026-03-03 16:18:31,478 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=581
+2026-03-03 16:18:31,479 [DEBUG] Environment step end | births=2.0, starved=24.0, resources_avg=4.4863481521606445, reward_mean=0.059659089893102646, energy_mean=-1.1895583868026733
+2026-03-03 16:18:31,479 [DEBUG] Step computed | wrap=True, alive=601, resources_mean=4.4863481521606445
+2026-03-03 16:18:31,524 [DEBUG] Resources regenerated | regen=0.25, rmean=4.562318801879883
+2026-03-03 16:18:31,525 [DEBUG] Environment step start | wrap=True, alive=601, energy_mean=-1.2895585298538208
+2026-03-03 16:18:31,550 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.5622334480285645
+2026-03-03 16:18:31,551 [DEBUG] Resources consumed | amount=0.35, feasible=318, shortage=10, rmean=4.549248695373535
+2026-03-03 16:18:31,552 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.549248695373535
+2026-03-03 16:18:31,552 [DEBUG] Resources consumed | amount=0.35, feasible=253, shortage=18, rmean=4.5385589599609375
+2026-03-03 16:18:31,553 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.5385589599609375
+2026-03-03 16:18:31,553 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.5385589599609375
+2026-03-03 16:18:31,553 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.5385589599609375
+2026-03-03 16:18:31,554 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.5385589599609375
+2026-03-03 16:18:31,554 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.5385589599609375
+2026-03-03 16:18:31,554 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.5385589599609375
+2026-03-03 16:18:32,987 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8529
+2026-03-03 16:18:32,987 [DEBUG] Environment step end | births=1.0, starved=28.0, resources_avg=4.5385589599609375, reward_mean=0.05511363595724106, energy_mean=-1.2702574729919434
+2026-03-03 16:18:32,988 [DEBUG] Step computed | wrap=True, alive=572, resources_mean=4.5385589599609375
+2026-03-03 16:18:33,033 [DEBUG] Resources regenerated | regen=0.25, rmean=4.592476844787598
+2026-03-03 16:18:33,033 [DEBUG] Environment step start | wrap=True, alive=572, energy_mean=-1.3702572584152222
+2026-03-03 16:18:33,108 [DEBUG] Resources consumed | amount=0.75, feasible=28, shortage=0, rmean=4.590090751647949
+2026-03-03 16:18:33,109 [DEBUG] Resources consumed | amount=0.35, feasible=282, shortage=5, rmean=4.578706741333008
+2026-03-03 16:18:33,109 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.578706741333008
+2026-03-03 16:18:33,109 [DEBUG] Resources consumed | amount=0.35, feasible=237, shortage=16, rmean=4.568739414215088
+2026-03-03 16:18:33,110 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.568739414215088
+2026-03-03 16:18:33,110 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.568739414215088
+2026-03-03 16:18:33,111 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.568739414215088
+2026-03-03 16:18:33,111 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.568739414215088
+2026-03-03 16:18:33,111 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.568739414215088
+2026-03-03 16:18:33,112 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.568739414215088
+2026-03-03 16:18:34,551 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8547
+2026-03-03 16:18:34,657 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=524
+2026-03-03 16:18:34,657 [DEBUG] Environment step end | births=28.0, starved=21.0, resources_avg=4.568739414215088, reward_mean=0.05090909078717232, energy_mean=-1.347507357597351
+2026-03-03 16:18:34,658 [DEBUG] Step computed | wrap=True, alive=547, resources_mean=4.568739414215088
+2026-03-03 16:18:34,705 [DEBUG] Resources regenerated | regen=0.25, rmean=4.611674785614014
+2026-03-03 16:18:34,705 [DEBUG] Environment step start | wrap=True, alive=547, energy_mean=-1.447507381439209
+2026-03-03 16:18:34,727 [DEBUG] Resources consumed | amount=0.75, feasible=4, shortage=0, rmean=4.611333847045898
+2026-03-03 16:18:34,728 [DEBUG] Resources consumed | amount=0.35, feasible=301, shortage=4, rmean=4.599219799041748
+2026-03-03 16:18:34,728 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.59913444519043
+2026-03-03 16:18:34,729 [DEBUG] Resources consumed | amount=0.35, feasible=218, shortage=18, rmean=4.589876174926758
+2026-03-03 16:18:34,729 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.589876174926758
+2026-03-03 16:18:34,729 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.589876174926758
+2026-03-03 16:18:34,729 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.589876174926758
+2026-03-03 16:18:34,730 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.589876174926758
+2026-03-03 16:18:34,730 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.589876174926758
+2026-03-03 16:18:34,730 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.589876174926758
+2026-03-03 16:18:36,143 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8563
+2026-03-03 16:18:36,144 [DEBUG] Environment step end | births=5.0, starved=22.0, resources_avg=4.589876174926758, reward_mean=0.051249999552965164, energy_mean=-1.4293197393417358
+2026-03-03 16:18:36,144 [DEBUG] Step computed | wrap=True, alive=524, resources_mean=4.589876174926758
+2026-03-03 16:18:36,190 [DEBUG] Resources regenerated | regen=0.25, rmean=4.630602836608887
+2026-03-03 16:18:36,191 [DEBUG] Environment step start | wrap=True, alive=524, energy_mean=-1.5293197631835938
+2026-03-03 16:18:36,210 [DEBUG] Resources consumed | amount=0.75, feasible=4, shortage=0, rmean=4.6302618980407715
+2026-03-03 16:18:36,210 [DEBUG] Resources consumed | amount=0.35, feasible=290, shortage=11, rmean=4.618350982666016
+2026-03-03 16:18:36,211 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.618350982666016
+2026-03-03 16:18:36,211 [DEBUG] Resources consumed | amount=0.35, feasible=207, shortage=12, rmean=4.609710693359375
+2026-03-03 16:18:36,212 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.609710693359375
+2026-03-03 16:18:36,212 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.609710693359375
+2026-03-03 16:18:36,213 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.609710693359375
+2026-03-03 16:18:36,213 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.609710693359375
+2026-03-03 16:18:36,213 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.609710693359375
+2026-03-03 16:18:36,214 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.609710693359375
+2026-03-03 16:18:37,729 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8581
+2026-03-03 16:18:37,729 [DEBUG] Environment step end | births=4.0, starved=23.0, resources_avg=4.609710693359375, reward_mean=0.048636361956596375, energy_mean=-1.511353611946106
+2026-03-03 16:18:37,730 [DEBUG] Step computed | wrap=True, alive=501, resources_mean=4.609710693359375
+2026-03-03 16:18:37,782 [DEBUG] Resources regenerated | regen=0.25, rmean=4.647830963134766
+2026-03-03 16:18:37,783 [DEBUG] Environment step start | wrap=True, alive=501, energy_mean=-1.6113536357879639
+2026-03-03 16:18:37,804 [DEBUG] Resources consumed | amount=0.75, feasible=25, shortage=0, rmean=4.645700454711914
+2026-03-03 16:18:37,805 [DEBUG] Resources consumed | amount=0.35, feasible=263, shortage=5, rmean=4.635082721710205
+2026-03-03 16:18:37,806 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.635082721710205
+2026-03-03 16:18:37,806 [DEBUG] Resources consumed | amount=0.35, feasible=190, shortage=16, rmean=4.626969814300537
+2026-03-03 16:18:37,807 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.626969814300537
+2026-03-03 16:18:37,807 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.626969814300537
+2026-03-03 16:18:37,808 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.626969814300537
+2026-03-03 16:18:37,808 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.626969814300537
+2026-03-03 16:18:37,808 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.626969814300537
+2026-03-03 16:18:37,808 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.626969814300537
+2026-03-03 16:18:39,196 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8593
+2026-03-03 16:18:39,311 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=663
+2026-03-03 16:18:39,311 [DEBUG] Environment step end | births=25.0, starved=21.0, resources_avg=4.626969814300537, reward_mean=0.04386363551020622, energy_mean=-1.5899076461791992
+2026-03-03 16:18:39,312 [DEBUG] Step computed | wrap=True, alive=478, resources_mean=4.626969814300537
+2026-03-03 16:18:39,358 [DEBUG] Resources regenerated | regen=0.25, rmean=4.6634979248046875
+2026-03-03 16:18:39,359 [DEBUG] Environment step start | wrap=True, alive=478, energy_mean=-1.6899076700210571
+2026-03-03 16:18:39,382 [DEBUG] Resources consumed | amount=0.75, feasible=10, shortage=0, rmean=4.6626458168029785
+2026-03-03 16:18:39,383 [DEBUG] Resources consumed | amount=0.35, feasible=276, shortage=2, rmean=4.651602268218994
+2026-03-03 16:18:39,383 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.651602268218994
+2026-03-03 16:18:39,384 [DEBUG] Resources consumed | amount=0.35, feasible=169, shortage=21, rmean=4.644158363342285
+2026-03-03 16:18:39,384 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.644158363342285
+2026-03-03 16:18:39,385 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.644158363342285
+2026-03-03 16:18:39,385 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.644158363342285
+2026-03-03 16:18:39,386 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.644158363342285
+2026-03-03 16:18:39,386 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.644158363342285
+2026-03-03 16:18:39,386 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.644158363342285
+2026-03-03 16:18:40,924 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8610
+2026-03-03 16:18:40,925 [DEBUG] Environment step end | births=10.0, starved=23.0, resources_avg=4.644158363342285, reward_mean=0.0427272729575634, energy_mean=-1.6717145442962646
+2026-03-03 16:18:40,925 [DEBUG] Step computed | wrap=True, alive=455, resources_mean=4.644158363342285
+2026-03-03 16:18:40,975 [DEBUG] Resources regenerated | regen=0.25, rmean=4.679086685180664
+2026-03-03 16:18:40,976 [DEBUG] Environment step start | wrap=True, alive=455, energy_mean=-1.7717143297195435
+2026-03-03 16:18:40,993 [DEBUG] Resources consumed | amount=0.75, feasible=3, shortage=0, rmean=4.678830623626709
+2026-03-03 16:18:40,994 [DEBUG] Resources consumed | amount=0.35, feasible=273, shortage=10, rmean=4.667651176452637
+2026-03-03 16:18:40,995 [DEBUG] Resources consumed | amount=0.75, feasible=1, shortage=0, rmean=4.667566299438477
+2026-03-03 16:18:40,995 [DEBUG] Resources consumed | amount=0.35, feasible=158, shortage=10, rmean=4.6609296798706055
+2026-03-03 16:18:40,996 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.6609296798706055
+2026-03-03 16:18:40,996 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.6609296798706055
+2026-03-03 16:18:40,997 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.6609296798706055
+2026-03-03 16:18:40,997 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.6609296798706055
+2026-03-03 16:18:40,998 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.6609296798706055
+2026-03-03 16:18:40,998 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.6609296798706055
+2026-03-03 16:18:42,552 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8631
+2026-03-03 16:18:42,552 [DEBUG] Environment step end | births=4.0, starved=20.0, resources_avg=4.6609296798706055, reward_mean=0.04215909168124199, energy_mean=-1.7558053731918335
+2026-03-03 16:18:42,553 [DEBUG] Step computed | wrap=True, alive=435, resources_mean=4.6609296798706055
+2026-03-03 16:18:42,599 [DEBUG] Resources regenerated | regen=0.25, rmean=4.6942620277404785
+2026-03-03 16:18:42,600 [DEBUG] Environment step start | wrap=True, alive=435, energy_mean=-1.8558052778244019
+2026-03-03 16:18:42,627 [DEBUG] Resources consumed | amount=0.75, feasible=2, shortage=0, rmean=4.694091796875
+2026-03-03 16:18:42,628 [DEBUG] Resources consumed | amount=0.35, feasible=267, shortage=7, rmean=4.683232307434082
+2026-03-03 16:18:42,628 [DEBUG] Resources consumed | amount=0.75, feasible=2, shortage=0, rmean=4.6830620765686035
+2026-03-03 16:18:42,629 [DEBUG] Resources consumed | amount=0.35, feasible=150, shortage=7, rmean=4.6768670082092285
+2026-03-03 16:18:42,629 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.6768670082092285
+2026-03-03 16:18:42,630 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.6768670082092285
+2026-03-03 16:18:42,630 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.6768670082092285
+2026-03-03 16:18:42,630 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.6768670082092285
+2026-03-03 16:18:42,631 [DEBUG] Resources consumed | amount=0.75, feasible=0, shortage=0, rmean=4.6768670082092285
+2026-03-03 16:18:42,631 [DEBUG] Resources consumed | amount=0.35, feasible=0, shortage=0, rmean=4.6768670082092285
+2026-03-03 16:18:44,265 [DEBUG] PPO update | species=1 | device=cuda | batch_obs=8641
+2026-03-03 16:18:44,385 [DEBUG] PPO update | species=2 | device=cuda | batch_obs=518
+2026-03-03 16:18:44,385 [DEBUG] Environment step end | births=4.0, starved=14.0, resources_avg=4.6768670082092285, reward_mean=0.04261363670229912, energy_mean=-1.8409075736999512
+2026-03-03 16:18:44,386 [DEBUG] Step computed | wrap=True, alive=421, resources_mean=4.6768670082092285
