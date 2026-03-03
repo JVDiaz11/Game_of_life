@@ -1,0 +1,24 @@
+{
+  "hidden_layers": [512, 512, 256],
+  "trainer": {
+    "clip_eps": 0.2,
+    "entropy_coef": 0.01,
+    "value_coef": 0.5,
+    "lr": 0.00025,
+    "betas": [0.9, 0.999],
+    "weight_decay": 0.0,
+    "eps": 1e-08,
+    "optimizer": "adam",
+    "update_epochs": 3,
+    "batch_size": 1024,
+    "mini_batch_size": 256,
+    "max_grad_norm": 1.0
+  },
+  "species": {
+    "hidden_layers": [512, 512, 256],
+    "hidden_increment": 128,
+    "hidden_max": 1024,
+    "mutate_every": 180,
+    "noise_std": 0.01
+  }
+}

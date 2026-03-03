@@ -19,18 +19,40 @@ Controls:
 """
 from __future__ import annotations
 
+import logging
 import random
 import sys
+from pathlib import Path
 from typing import Dict, List, Sequence, Tuple
-
-import torch
 
 import numpy as np
 from PySide6 import QtCore, QtGui, QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
-from agent_policy import PolicyManager
+from modules.environment import EnvironmentConfig, EnvironmentEngine
+from modules.resource_map import ResourceMapManager
+from modules.species_policy import SpeciesPolicyManager
+from modules.policy_viz import PolicyVizWindow
+
+LOG_PATH = Path(__file__).with_name("debug") / "debug.txt"
+logger = logging.getLogger("gol")
+if not logger.handlers:
+    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    # Truncate log each app start so we only see the current session.
+    handler = logging.FileHandler(LOG_PATH, mode="w", encoding="utf-8")
+    handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
+    logger.addHandler(handler)
+    logger.setLevel(logging.DEBUG)
+    logger.propagate = False
+
+
+def log_debug(msg: str, **data: object) -> None:
+    if data:
+        parts = [f"{k}={v}" for k, v in data.items()]
+        logger.debug(f"{msg} | " + ", ".join(parts))
+    else:
+        logger.debug(msg)
 
 # Colors
 # UI background lighter dark; grid panel still drawn dark in the widget
@@ -61,34 +83,64 @@ class LifeWidget(QtWidgets.QWidget):
         self.setMinimumSize(600, 400)
         self.rows = rows
         self.cols = cols
+        self.env_engine = EnvironmentEngine(rows, cols, EnvironmentConfig())
+        self.resource_map = self.env_engine.resource_map
         # grid values: 0 empty, 1-5 species, -1 barrier
         self.grid = np.zeros((rows, cols), dtype=np.int8)
         self.age = np.zeros((rows, cols), dtype=np.int32)
         self.wrap = True
+        self.view_resources = False
         self._mouse_down = False
         self.setMouseTracking(True)
-        self.policy_mgr: PolicyManager | None = None
+        self.policy_mgr: SpeciesPolicyManager | None = None
         self.use_policy = False
         self.brush_state: int | None = None  # None means cycle
+        self.randomize_resources()
+        log_debug("LifeWidget initialized", rows=rows, cols=cols)
 
     def set_wrap(self, wrap: bool) -> None:
         self.wrap = wrap
 
-    def set_policy_manager(self, mgr: PolicyManager | None, enabled: bool) -> None:
+    def set_policy_manager(self, mgr: SpeciesPolicyManager | None, enabled: bool) -> None:
         self.policy_mgr = mgr
         self.use_policy = enabled
+        log_debug("Policy manager toggled", enabled=enabled)
 
     def clear(self) -> None:
         self.grid[:] = 0
         self.age[:] = 0
+        self.env_engine.reset()
         self.update()
+        log_debug("Board cleared")
 
     def randomize(self, density: float = 0.2) -> None:
         alive_mask = np.random.rand(self.rows, self.cols) < density
         species_choices = np.random.randint(1, 6, size=(self.rows, self.cols), dtype=np.int8)
         self.grid = np.where(alive_mask, species_choices, 0)
         self.age[:] = 0
+        self.env_engine.reset()
+        self.randomize_resources()
         self.update()
+        log_debug("Board randomized", density=density, alive=int((self.grid > 0).sum()))
+
+    def randomize_resources(self) -> None:
+        self.resource_map.randomize()
+        self.update()
+        grid = self.resource_map.grid
+        log_debug("Resources randomized", rmin=float(grid.min()), rmax=float(grid.max()), rmean=float(grid.mean()))
+
+    def fill_resources(self, value: float) -> None:
+        self.resource_map.fill(value)
+        self.update()
+        grid = self.resource_map.grid
+        log_debug("Resources filled", value=value, rmin=float(grid.min()), rmax=float(grid.max()), rmean=float(grid.mean()))
+
+    def set_view_resources(self, enabled: bool) -> None:
+        self.view_resources = enabled
+        if enabled and float(self.resource_map.grid.max()) <= 0.0:
+            self.randomize_resources()
+        self.update()
+        log_debug("Resource overlay toggled", enabled=enabled, rmax=float(self.resource_map.grid.max()))
 
     def insert_pattern(self, pattern: List[Tuple[int, int]]) -> None:
         r0 = self.rows // 2
@@ -102,107 +154,61 @@ class LifeWidget(QtWidgets.QWidget):
 
     def step_with_delta(self) -> tuple[np.ndarray, np.ndarray]:
         g_prev = self.grid.copy()
-        if self.use_policy and self.policy_mgr is not None:
-            new_grid = self._policy_step(g_prev)
-        else:
-            new_grid = self._rule_step(g_prev)
+        new_grid, _info = self.env_engine.step(g_prev, self.wrap, self.policy_mgr, self.use_policy)
 
         same_species = (new_grid == g_prev) & (new_grid > 0)
         births_any = (new_grid > 0) & (~same_species)
         self.age = np.where(new_grid > 0, np.where(births_any, 1, self.age + 1), 0)
         self.grid = new_grid
         self.update()
+        log_debug(
+            "Step computed",
+            wrap=self.wrap,
+            alive=int((self.grid > 0).sum()),
+            resources_mean=float(self.resource_map.grid.mean()),
+        )
         return g_prev, new_grid
-
-    def _rule_step(self, g: np.ndarray) -> np.ndarray:
-        neighbor_counts = []
-        for s in range(1, 6):
-            mask = g == s
-            if self.wrap:
-                n = sum(
-                    np.roll(np.roll(mask, i, axis=0), j, axis=1)
-                    for i in (-1, 0, 1)
-                    for j in (-1, 0, 1)
-                    if not (i == 0 and j == 0)
-                )
-            else:
-                n = np.zeros_like(mask, dtype=np.int8)
-                n[1:-1, 1:-1] = (
-                    mask[:-2, :-2]
-                    + mask[:-2, 1:-1]
-                    + mask[:-2, 2:]
-                    + mask[1:-1, :-2]
-                    + mask[1:-1, 2:]
-                    + mask[2:, :-2]
-                    + mask[2:, 1:-1]
-                    + mask[2:, 2:]
-                )
-            neighbor_counts.append(n.astype(np.int16))
-        counts_stack = np.stack(neighbor_counts, axis=-1)
-
-        new_grid = np.zeros_like(g)
-        barrier_mask = g == -1
-        new_grid[barrier_mask] = -1
-
-        pred_map = np.array([0, 5, 1, 2, 3, 4], dtype=np.int8)
-        species_mask = g > 0
-        predators = pred_map[g.clip(0, 5)]
-        flat_counts = counts_stack.reshape(-1, 5)
-        pred_idx = np.clip(predators.reshape(-1) - 1, 0, 4)
-        pred_counts = flat_counts[np.arange(flat_counts.shape[0]), pred_idx].reshape(g.shape)
-        predation_mask = species_mask & (pred_counts >= 3)
-
-        for s in range(1, 6):
-            s_mask = g == s
-            same = counts_stack[..., s - 1]
-            survive = s_mask & (~predation_mask) & ((same == 2) | (same == 3))
-            new_grid[survive] = s
-
-        new_grid[predation_mask] = predators[predation_mask]
-
-        empty_mask = g == 0
-        max_count = counts_stack.max(axis=-1)
-        argmax = counts_stack.argmax(axis=-1) + 1
-        tie_mask = (counts_stack == max_count[..., None]).sum(axis=-1) > 1
-        birth_mask = empty_mask & (max_count >= 3) & (~tie_mask)
-        new_grid[birth_mask] = argmax[birth_mask]
-        return new_grid
-
-    def _policy_step(self, g: np.ndarray) -> np.ndarray:
-        # barriers stay barriers
-        barriers = g == -1
-        grid_t = torch.from_numpy(g.astype(np.int64))
-        actions = self.policy_mgr.infer_next_states(grid_t)
-        new_grid = actions.numpy().astype(np.int8)
-        new_grid[barriers] = -1
-        return new_grid
 
     # --- painting ---
     def paintEvent(self, event: QtGui.QPaintEvent) -> None:  # noqa: N802
         painter = QtGui.QPainter(self)
-        # Grid background stays dark
         painter.fillRect(self.rect(), QtGui.QColor(16, 20, 26))
         w = self.width()
         h = self.height()
         cw = w / self.cols
         ch = h / self.rows
 
-        # Grid lines (lightweight)
-        painter.setPen(QtGui.QPen(GRID_COLOR, 1))
-        for c in range(self.cols + 1):
-            x = int(c * cw)
-            painter.drawLine(x, 0, x, h)
-        for r in range(self.rows + 1):
-            y = int(r * ch)
-            painter.drawLine(0, y, w, y)
+        if not self.view_resources:
+            painter.setPen(QtGui.QPen(GRID_COLOR, 1))
+            for c in range(self.cols + 1):
+                x = int(c * cw)
+                painter.drawLine(x, 0, x, h)
+            for r in range(self.rows + 1):
+                y = int(r * ch)
+                painter.drawLine(0, y, w, y)
 
-        # Cells and barriers
+        if self.view_resources:
+            map_max = float(np.max(self.resource_map.grid))
+            if map_max <= 0.0:
+                # fill with a visible baseline to ensure rendering is obvious
+                self.resource_map.fill(self.resource_map.layer.config.max_capacity)
+                map_max = float(np.max(self.resource_map.grid))
+            scale_max = max(map_max, 0.001)
+            any_res = map_max > 0.0
+            map_min = float(np.min(self.resource_map.grid))
+
         for r in range(self.rows):
             for c in range(self.cols):
+                rect = QtCore.QRect(int(c * cw) + 1, int(r * ch) + 1, int(cw) - 1, int(ch) - 1)
+                if self.view_resources:
+                    val = float(self.resource_map.grid[r, c])
+                    norm = min(1.0, val / scale_max)
+                    g_val = int(10 + 245 * norm)
+                    painter.fillRect(rect, QtGui.QColor(0, g_val, 0))
+                    continue
                 val = self.grid[r, c]
                 if val == 0:
                     continue
-                rect = QtCore.QRect(int(c * cw) + 1, int(r * ch) + 1, int(cw) - 1, int(ch) - 1)
                 if val == -1:
                     painter.fillRect(rect, QtGui.QColor(80, 0, 0, 120))
                     pen = QtGui.QPen(BARRIER_COLOR, 2)
@@ -217,6 +223,23 @@ class LifeWidget(QtWidgets.QWidget):
                 t = min(age / 12.0, 1.0)
                 color = lerp_color(base, QtGui.QColor(255, 255, 255), t)
                 painter.fillRect(rect, color)
+
+        if self.view_resources:
+            painter.setPen(QtGui.QColor(200, 255, 200))
+            if not any_res:
+                painter.drawText(self.rect(), QtCore.Qt.AlignmentFlag.AlignCenter, "No resources — click Gen Resources")
+            else:
+                painter.drawText(12, 22, f"Resources: min {map_min:.2f} max {map_max:.2f}")
+                # draw a small legend bar
+                legend_x = 12
+                legend_y = 30
+                legend_w = 180
+                legend_h = 12
+                for i in range(legend_w):
+                    t = i / max(1, legend_w - 1)
+                    g_val = int(10 + 245 * t)
+                    painter.fillRect(QtCore.QRect(legend_x + i, legend_y, 1, legend_h), QtGui.QColor(0, g_val, 0))
+                painter.drawRect(QtCore.QRect(legend_x, legend_y, legend_w, legend_h))
 
     # --- mouse input ---
     def mousePressEvent(self, event: QtGui.QMouseEvent) -> None:  # noqa: N802
@@ -264,6 +287,10 @@ class ControlPanel(QtWidgets.QWidget):
     speed_changed = QtCore.Signal(int)
     pattern_selected = QtCore.Signal(str)
     policy_toggle = QtCore.Signal(bool)
+    res_random_clicked = QtCore.Signal()
+    res_fill_clicked = QtCore.Signal(float)
+    res_view_toggle = QtCore.Signal(bool)
+    policy_viz_clicked = QtCore.Signal()
 
     def __init__(self) -> None:
         super().__init__()
@@ -276,9 +303,18 @@ class ControlPanel(QtWidgets.QWidget):
         self.step_btn = QtWidgets.QPushButton("Step")
         self.clear_btn = QtWidgets.QPushButton("Clear")
         self.random_btn = QtWidgets.QPushButton("Random")
+        self.res_random_btn = QtWidgets.QPushButton("Gen Resources")
+        self.res_fill_btn = QtWidgets.QPushButton("Fill Resources")
+        self.res_view_box = QtWidgets.QCheckBox("View Resources")
+        self.policy_viz_btn = QtWidgets.QPushButton("Policy Viz")
 
         for btn in [self.start_btn, self.pause_btn, self.step_btn, self.clear_btn, self.random_btn]:
             layout.addWidget(btn)
+
+        layout.addWidget(self.res_random_btn)
+        layout.addWidget(self.res_fill_btn)
+        layout.addWidget(self.res_view_box)
+        layout.addWidget(self.policy_viz_btn)
 
         layout.addWidget(QtWidgets.QLabel("Speed:"))
         self.speed_slider = QtWidgets.QSlider(QtCore.Qt.Orientation.Horizontal)
@@ -303,7 +339,7 @@ class ControlPanel(QtWidgets.QWidget):
         self.pattern_box.addItems(["None", "Glider", "Small Exploder", "Pulsar", "Gosper Gun"])
         layout.addWidget(self.pattern_box)
 
-        self.policy_box = QtWidgets.QCheckBox("NN policy")
+        self.policy_box = QtWidgets.QCheckBox("Learning")
         layout.addWidget(self.policy_box)
 
         layout.addStretch(1)
@@ -313,14 +349,24 @@ class ControlPanel(QtWidgets.QWidget):
         self.step_btn.clicked.connect(self.step_clicked)
         self.clear_btn.clicked.connect(self.clear_clicked)
         self.random_btn.clicked.connect(self._emit_random)
+        self.res_random_btn.clicked.connect(lambda: self.res_random_clicked.emit())
+        self.res_fill_btn.clicked.connect(self._emit_res_fill)
+        self.res_view_box.toggled.connect(lambda checked: (log_debug("View resources toggled", checked=checked), self.res_view_toggle.emit(checked))[1])
         self.wrap_box.stateChanged.connect(lambda s: self.wrap_changed.emit(s == QtCore.Qt.CheckState.Checked))
         self.speed_slider.valueChanged.connect(lambda v: self.speed_changed.emit(v))
         self.pattern_box.currentTextChanged.connect(self.pattern_selected)
-        self.policy_box.stateChanged.connect(lambda s: self.policy_toggle.emit(s == QtCore.Qt.CheckState.Checked))
+        # use toggled(bool) to avoid enum quirks
+        self.policy_box.toggled.connect(lambda checked: self.policy_toggle.emit(bool(checked)))
+        self.policy_viz_btn.clicked.connect(lambda: self.policy_viz_clicked.emit())
 
     def _emit_random(self) -> None:
         density = self.density_slider.value() / 100.0
         self.random_clicked.emit(density)
+
+    def _emit_res_fill(self) -> None:
+        val, ok = QtWidgets.QInputDialog.getDouble(self, "Fill resources", "Value per cell", 1.0, 0.0, 10.0, 2)
+        if ok:
+            self.res_fill_clicked.emit(val)
 
 
 PATTERNS: Dict[str, List[Tuple[int, int]]] = {
@@ -404,6 +450,80 @@ class StatsPanel(QtWidgets.QGroupBox):
     def update_counts(self, alive: np.ndarray, deaths: np.ndarray, kills: np.ndarray) -> None:
         for s in range(1, 6):
             self.labels[s].setText(f"Alive {alive[s-1]} | Deaths {deaths[s-1]} | Kills {kills[s-1]}")
+
+
+class ConfigPanel(QtWidgets.QGroupBox):
+    params_changed = QtCore.Signal(dict)
+
+    def __init__(self, env_cfg: EnvironmentConfig) -> None:
+        super().__init__("Settings")
+        layout = QtWidgets.QVBoxLayout(self)
+        layout.setContentsMargins(8, 8, 8, 8)
+        layout.setSpacing(8)
+
+        self.tabs = QtWidgets.QTabWidget()
+        layout.addWidget(self.tabs)
+
+        self.resource_tab = QtWidgets.QWidget()
+        res_form = QtWidgets.QFormLayout(self.resource_tab)
+        res_form.setLabelAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+        self.res_regen = self._spin(res_form, "Regen / step", env_cfg.resource.regen_rate, 0.0, 5.0, 0.05)
+        self.res_max = self._spin(res_form, "Max capacity", env_cfg.resource.max_capacity, 0.1, 20.0, 0.1)
+        self.res_base = self._spin(res_form, "Baseline", env_cfg.resource.baseline, 0.0, 10.0, 0.1)
+        self.res_rng_low = self._spin(res_form, "Rand low", env_cfg.resource.rng_low, 0.0, 10.0, 0.1)
+        self.res_rng_high = self._spin(res_form, "Rand high", env_cfg.resource.rng_high, 0.0, 10.0, 0.1)
+        self.tabs.addTab(self.resource_tab, "Resources")
+
+        self.energy_tab = QtWidgets.QWidget()
+        en_form = QtWidgets.QFormLayout(self.energy_tab)
+        en_form.setLabelAlignment(QtCore.Qt.AlignmentFlag.AlignLeft)
+        self.energy_decay = self._spin(en_form, "Energy decay", env_cfg.energy_decay, 0.0, 2.0, 0.01)
+        self.energy_conv = self._spin(en_form, "Resource->Energy", env_cfg.energy_conversion, 0.1, 5.0, 0.05)
+        self.cost_stay = self._spin(en_form, "Stay cost", env_cfg.stay_cost, 0.0, 2.0, 0.01)
+        self.cost_takeover = self._spin(en_form, "Takeover cost", env_cfg.takeover_cost, 0.0, 3.0, 0.01)
+        self.cost_birth = self._spin(en_form, "Birth action cost", env_cfg.birth_action_cost, 0.0, 3.0, 0.01)
+        self.tabs.addTab(self.energy_tab, "Energy")
+
+        apply_btn = QtWidgets.QPushButton("Apply")
+        apply_btn.clicked.connect(self._emit_params)
+        layout.addWidget(apply_btn)
+        layout.addStretch(1)
+
+    def _spin(
+        self,
+        form: QtWidgets.QFormLayout,
+        label: str,
+        value: float,
+        lo: float,
+        hi: float,
+        step: float,
+    ) -> QtWidgets.QDoubleSpinBox:
+        box = QtWidgets.QDoubleSpinBox()
+        box.setRange(lo, hi)
+        box.setSingleStep(step)
+        box.setDecimals(3)
+        box.setValue(value)
+        form.addRow(label, box)
+        return box
+
+    def _emit_params(self) -> None:
+        params = {
+            "resource": {
+                "regen_rate": self.res_regen.value(),
+                "max_capacity": self.res_max.value(),
+                "baseline": self.res_base.value(),
+                "rng_low": self.res_rng_low.value(),
+                "rng_high": self.res_rng_high.value(),
+            },
+            "energy": {
+                "energy_decay": self.energy_decay.value(),
+                "energy_conversion": self.energy_conv.value(),
+                "stay_cost": self.cost_stay.value(),
+                "takeover_cost": self.cost_takeover.value(),
+                "birth_action_cost": self.cost_birth.value(),
+            },
+        }
+        self.params_changed.emit(params)
 
 
 class PanelToggleBar(QtWidgets.QWidget):
@@ -506,9 +626,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.brush_panel = BrushPanel()
         self.stats_panel = StatsPanel()
         self.insights_panel = InsightsPanel()
+        self.config_panel = ConfigPanel(self.board.env_engine.cfg)
         self.brush_panel.setMinimumWidth(180)
         self.stats_panel.setMinimumWidth(220)
         self.insights_panel.setMinimumWidth(260)
+        self.config_panel.setMinimumWidth(260)
 
         container = QtWidgets.QWidget()
         vlayout = QtWidgets.QVBoxLayout(container)
@@ -521,6 +643,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 ("brush", "Brush Panel", True),
                 ("stats", "Stats Panel", True),
                 ("insights", "Insights Panel", False),
+                ("config", "Config Panel", False),
             ]
         )
         vlayout.addWidget(self.panel_toggle_bar)
@@ -546,14 +669,22 @@ class MainWindow(QtWidgets.QMainWindow):
         self.insights_scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.insights_scroll.setWidget(self.insights_panel)
 
+        self.config_scroll = QtWidgets.QScrollArea()
+        self.config_scroll.setWidgetResizable(True)
+        self.config_scroll.setFrameShape(QtWidgets.QFrame.Shape.NoFrame)
+        self.config_scroll.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.config_scroll.setWidget(self.config_panel)
+
         splitter.addWidget(self.left_scroll)
         splitter.addWidget(self.board)
         splitter.addWidget(self.right_scroll)
         splitter.addWidget(self.insights_scroll)
+        splitter.addWidget(self.config_scroll)
         splitter.setStretchFactor(0, 0)
         splitter.setStretchFactor(1, 1)
         splitter.setStretchFactor(2, 0)
         splitter.setStretchFactor(3, 0)
+        splitter.setStretchFactor(4, 0)
 
         vlayout.addWidget(splitter, 1)
 
@@ -563,17 +694,27 @@ class MainWindow(QtWidgets.QMainWindow):
             "brush": self.left_scroll,
             "stats": self.right_scroll,
             "insights": self.insights_scroll,
+            "config": self.config_scroll,
         }
         self.panel_toggle_bar.panel_toggled.connect(self._handle_panel_toggle)
         self.insights_panel.metric_changed.connect(self._update_insights_plot)
         self.insights_scroll.hide()
+        self.config_panel.params_changed.connect(self._apply_params)
+        self.config_scroll.hide()
 
         self.timer = QtCore.QTimer()
         self.timer.timeout.connect(self._tick)
 
-        # policy manager (untrained by default). You can load trained weights here.
-        self.policy_mgr = PolicyManager.create([1, 2, 3, 4, 5])
+        # policy manager (per-species).
+        self.policy_mgr = SpeciesPolicyManager.create(
+            [1, 2, 3, 4, 5],
+            hidden_layers=[512, 512, 256],
+            reset_arch=True,
+        )
         self.board.set_policy_manager(self.policy_mgr, enabled=False)
+
+        self.res_window: ResourceWindow | None = None
+        self.policy_window: PolicyVizWindow | None = None
 
         # stats trackers
         self.alive_counts = np.zeros(5, dtype=np.int64)
@@ -663,13 +804,22 @@ class MainWindow(QtWidgets.QMainWindow):
         self.controls.step_clicked.connect(self.step_once)
         self.controls.clear_clicked.connect(self.clear)
         self.controls.random_clicked.connect(self.randomize)
+        self.controls.res_random_clicked.connect(self._randomize_resources)
+        self.controls.res_fill_clicked.connect(self._fill_resources)
+        self.controls.res_view_toggle.connect(self._toggle_resource_view)
         self.controls.wrap_changed.connect(self.set_wrap)
         self.controls.speed_changed.connect(self.set_speed)
         self.controls.pattern_selected.connect(self.insert_pattern)
         self.controls.policy_toggle.connect(self.toggle_policy)
+        self.controls.policy_viz_clicked.connect(self._show_policy_viz)
         self.brush_panel.brush_changed.connect(self._set_brush)
 
     def _tick(self) -> None:
+        # ensure toggle state is respected even if a signal was missed
+        desired_learning = self.controls.policy_box.isChecked()
+        if self.board.use_policy != desired_learning:
+            self.board.set_policy_manager(self.policy_mgr, desired_learning)
+            log_debug("Learning state synced on tick", desired=desired_learning)
         prev, new = self.board.step_with_delta()
         self._update_stats(prev, new)
         self.gen += 1
@@ -686,6 +836,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def step_once(self) -> None:
         self.timer.stop()
+        desired_learning = self.controls.policy_box.isChecked()
+        if self.board.use_policy != desired_learning:
+            self.board.set_policy_manager(self.policy_mgr, desired_learning)
+            log_debug("Learning state synced on step", desired=desired_learning)
         prev, new = self.board.step_with_delta()
         self._update_stats(prev, new)
         self.gen += 1
@@ -716,6 +870,67 @@ class MainWindow(QtWidgets.QMainWindow):
     def set_wrap(self, wrap: bool) -> None:
         self.board.set_wrap(wrap)
 
+    def _randomize_resources(self) -> None:
+        self.board.randomize_resources()
+        self.status.showMessage("Resources regenerated", 1200)
+
+    def _fill_resources(self, value: float) -> None:
+        self.board.fill_resources(value)
+        self.status.showMessage("Resources filled", 1200)
+
+    def _toggle_resource_view(self, enabled: bool) -> None:
+        if enabled and float(self.board.resource_map.grid.max()) <= 0.0:
+            self.board.randomize_resources()
+            self.status.showMessage("Resources generated for view", 1500)
+        log_debug("Resource view toggle requested", enabled=enabled)
+        self.board.set_view_resources(False)
+        if enabled:
+            if self.res_window is None:
+                self.res_window = ResourceWindow(self.board)
+                log_debug("Resource window created")
+            self.res_window.match_board_size()
+            self.res_window.show()
+            self.res_window.raise_()
+            self.res_window.activateWindow()
+            log_debug("Resource window shown")
+        else:
+            if self.res_window is not None:
+                self.res_window.close()
+                log_debug("Resource window closed")
+                self.res_window = None
+
+    def _show_policy_viz(self) -> None:
+        if self.policy_mgr is None:
+            self.status.showMessage("No policy manager available", 1500)
+            return
+        if self.policy_window is None:
+            self.policy_window = PolicyVizWindow(self.policy_mgr, self)
+        self.policy_window.set_learning_enabled(self.board.use_policy)
+        self.policy_window.show()
+        self.policy_window.raise_()
+        self.policy_window.activateWindow()
+        log_debug("Policy viz window shown")
+
+    def _apply_params(self, params: dict) -> None:
+        env = self.board.env_engine
+        res_cfg = env.resources.config
+        res_params = params.get("resource", {})
+        res_cfg.regen_rate = float(res_params.get("regen_rate", res_cfg.regen_rate))
+        res_cfg.max_capacity = float(res_params.get("max_capacity", res_cfg.max_capacity))
+        res_cfg.baseline = float(res_params.get("baseline", res_cfg.baseline))
+        res_cfg.rng_low = float(res_params.get("rng_low", res_cfg.rng_low))
+        res_cfg.rng_high = float(res_params.get("rng_high", res_cfg.rng_high))
+        env.resources.grid[:] = np.clip(env.resources.grid, 0.0, res_cfg.max_capacity)
+
+        energy_params = params.get("energy", {})
+        env.cfg.energy_decay = float(energy_params.get("energy_decay", env.cfg.energy_decay))
+        env.cfg.energy_conversion = float(energy_params.get("energy_conversion", env.cfg.energy_conversion))
+        env.cfg.stay_cost = float(energy_params.get("stay_cost", env.cfg.stay_cost))
+        env.cfg.takeover_cost = float(energy_params.get("takeover_cost", env.cfg.takeover_cost))
+        env.cfg.birth_action_cost = float(energy_params.get("birth_action_cost", env.cfg.birth_action_cost))
+
+        self.status.showMessage("Parameters applied", 1500)
+
     def set_speed(self, ms: int) -> None:
         if self.timer.isActive():
             self.timer.start(self._current_interval_ms())
@@ -731,6 +946,10 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def toggle_policy(self, enabled: bool) -> None:
         self.board.set_policy_manager(self.policy_mgr, enabled)
+        if self.policy_window is not None:
+            self.policy_window.set_learning_enabled(enabled)
+        self.status.showMessage(f"Learning {'on' if enabled else 'off'}", 1200)
+        log_debug("Learning checkbox toggled", enabled=enabled)
 
     def _set_brush(self, state: int | None) -> None:
         self.board.set_brush_state(state)
@@ -756,7 +975,81 @@ class MainWindow(QtWidgets.QMainWindow):
             self.alive_counts[s - 1] = int((self.board.grid == s).sum())
 
 
+class ResourceWindow(QtWidgets.QMainWindow):
+    def __init__(self, board: LifeWidget) -> None:
+        super().__init__()
+        self.board = board
+        self.setWindowTitle("Resource Map")
+        self.label = QtWidgets.QLabel()
+        self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label.setMinimumSize(320, 220)
+        self.label.setSizePolicy(
+            QtWidgets.QSizePolicy.Policy.Expanding,
+            QtWidgets.QSizePolicy.Policy.Expanding,
+        )
+        self.setCentralWidget(self.label)
+        self.match_board_size()
+        self.timer = QtCore.QTimer(self)
+        self.timer.timeout.connect(self._refresh)
+        self.timer.start(250)
+        self._refresh()
+        log_debug("ResourceWindow initialized")
+
+    def closeEvent(self, event: QtGui.QCloseEvent) -> None:  # noqa: N802
+        self.timer.stop()
+        log_debug("ResourceWindow closeEvent")
+        super().closeEvent(event)
+
+    def showEvent(self, event: QtGui.QShowEvent) -> None:  # noqa: N802
+        super().showEvent(event)
+        log_debug("ResourceWindow showEvent")
+        self.match_board_size()
+        QtCore.QTimer.singleShot(0, self._refresh)
+
+    def match_board_size(self) -> None:
+        size = self.board.size()
+        if size.width() <= 0 or size.height() <= 0:
+            self.resize(500, 400)
+            return
+        self.resize(size)
+
+    def _refresh(self) -> None:
+        grid = self.board.resource_map.grid
+        if grid.size == 0:
+            return
+        gmax = float(grid.max())
+        gmin = float(grid.min())
+        gmax = max(gmax, 0.001)
+        norm = np.clip((grid - gmin) / gmax, 0.0, 1.0)
+        rgba = np.zeros((grid.shape[0], grid.shape[1], 4), dtype=np.uint8)
+        rgba[..., 1] = (norm * 255).astype(np.uint8)
+        rgba[..., 3] = 255
+        h, w, _ = rgba.shape
+        target_size = self.label.size()
+        if target_size.width() < 10 or target_size.height() < 10:
+            target_size = self.size()
+        if target_size.width() < 10 or target_size.height() < 10:
+            target_size = QtCore.QSize(w, h)
+        image = QtGui.QImage(rgba.data, w, h, QtGui.QImage.Format.Format_RGBA8888).copy()
+        pix = QtGui.QPixmap.fromImage(image).scaled(
+            target_size,
+            QtCore.Qt.AspectRatioMode.KeepAspectRatio,
+            QtCore.Qt.TransformationMode.FastTransformation,
+        )
+        self.label.setPixmap(pix)
+        log_debug(
+            "ResourceWindow refresh",
+            shape=grid.shape,
+            rmin=gmin,
+            rmax=float(grid.max()),
+            rmean=float(grid.mean()),
+            target_w=target_size.width(),
+            target_h=target_size.height(),
+        )
+
+
 def main() -> None:
+    log_debug("App start")
     app = QtWidgets.QApplication(sys.argv)
     app.setApplicationName("Game of Life")
     app.setStyle("Fusion")
